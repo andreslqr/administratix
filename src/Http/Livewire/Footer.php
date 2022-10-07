@@ -14,6 +14,6 @@ class Footer extends Component
      */
     public function render()
     {
-        return View::make(config('administratix.livewire.components.footer'));
+        return View::make(config('administratix.livewire.components.admin.footer.view'));
     }
 }

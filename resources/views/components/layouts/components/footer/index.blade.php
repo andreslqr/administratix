@@ -1,1 +1,1 @@
-@livewire(config('administratix'), ['user' => $user], key($user->id))
+@livewire(config('administratix.livewire.components.admin.footer.name'))

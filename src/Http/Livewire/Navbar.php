@@ -14,6 +14,6 @@ class Navbar extends Component
      */
     public function render()
     {
-        return View::make(config('administratix.livewire.components.navbar'));
+        return View::make(config('administratix.livewire.components.admin.navbar.view'));
     }
 }

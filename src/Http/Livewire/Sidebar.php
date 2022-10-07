@@ -14,6 +14,6 @@ class Sidebar extends Component
      */
     public function render()
     {
-        return View::make(config('administratix.livewire.components.sidebar'));
+        return View::make(config('administratix.livewire.components.admin.sidebar.view'));
     }
 }
