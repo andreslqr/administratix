@@ -1,0 +1,31 @@
+{
+    "name": "administratix/administratix",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Administratix\\Administratix\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "administratix",
+            "email": "andres22.dev@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Administratix\\Administratix\\AdministratixServiceProvider",
+                "Administratix\\Administratix\\Providers\\AdministratixRouteServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.5"
+    },
+    "require": {
+        "php": "^8.0",
+        "livewire/livewire": "^2.10"
+    }
+}
