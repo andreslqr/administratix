@@ -48,18 +48,18 @@ class Boot
      */
     public static function loadLivewireComponents($app)
     {
-        $loader = function($component, $name = '') use (&$loader) : void {
-            if(is_iterable($component) && ) {
+        $loader = function($component) use (&$loader) : void {
+            if(is_iterable($component) && ! Arr::has($component, 'component')) {
                 foreach($component as $key => $value)
-                    $loader($value, $name . '.');
+                    $loader($value);
                 
                 return ;
             }
              
-            Livewire::component($name, $component);
+            Livewire::component(Arr::get($component, 'name'), Arr::get($component, 'component'));
             
         };
 
-        $loader()
+        $loader(config('administratix.livewire.components'));
     }
 }
