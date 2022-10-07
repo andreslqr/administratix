@@ -1,4 +1,1 @@
-<footer class="h-56 w-full bg-background-secondary border-t-2">
-    
-
-</footer>
+@livewire(config('administratix'), ['user' => $user], key($user->id))

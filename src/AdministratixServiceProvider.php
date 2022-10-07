@@ -3,6 +3,7 @@
 namespace Administratix\Administratix;
 
 use Administratix\Administratix\Providers\ServiceProvider;
+use Administratix\Administratix\Support\Helpers\Boot;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class AdministratixServiceProvider extends ServiceProvider
@@ -58,6 +59,8 @@ class AdministratixServiceProvider extends ServiceProvider
         $this->views(__DIR__ . '/../resources/views', $this->app->config['administratix.views.prefix']);
         $this->views($this->app->config['administratix.views.paths']);
         $this->composers($this->app->config['administratix.views.composers']);
+
+        Boot::loadLivewireComponents($this->app);
     }
 
 

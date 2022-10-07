@@ -7,6 +7,7 @@ use Administratix\Administratix\Support\Routing\Manager;
 use Administratix\Administratix\Support\Routing\Route as RoutingRoute;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 
 class Boot
 {
@@ -38,5 +39,27 @@ class Boot
                     RouteManager::addRoute($router, new RoutingRoute($name, $display ?: __($name), $permissions, $iconComponent, $iconName));
             });
         }
+    }
+
+    /**
+     * Load the livewire components
+     * 
+     * @return void
+     */
+    public static function loadLivewireComponents($app)
+    {
+        $loader = function($component, $name = '') use (&$loader) : void {
+            if(is_iterable($component) && ) {
+                foreach($component as $key => $value)
+                    $loader($value, $name . '.');
+                
+                return ;
+            }
+             
+            Livewire::component($name, $component);
+            
+        };
+
+        $loader()
     }
 }
