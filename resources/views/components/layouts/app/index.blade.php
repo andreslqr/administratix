@@ -12,13 +12,15 @@
         @stack('styles')
     </head>
     <body>
-        <x-dynamic-component :component="config('administratix.views.layouts.admin.components.sidebar')" />
-        <x-dynamic-component :component="config('administratix.views.layouts.admin.components.navbar.index')" />
+        @livewire(config('administratix.livewire.components.admin.sidebar.component'))
+        @livewire(config('administratix.livewire.components.admin.navbar.component'))
+
         <main class="w-full pl-256 pt-56 min-h-screen bg-background-general flex flex-col">    
             <div class="main-content flex-auto">
                 {{ $slot }}
             </div>
-            <x-dynamic-component :component="config('administratix.views.layouts.admin.components.footer')" />
+            
+            @livewire(config('administratix.livewire.components.admin.footer.component')) 
         </main>
         
         @vite('resources/admin/js/app.js')

@@ -49,14 +49,14 @@ class Boot
     public static function loadLivewireComponents($app)
     {
         $loader = function($component) use (&$loader) : void {
-            if(is_iterable($component) && ! Arr::has($component, 'component')) {
+            if(is_iterable($component) && ! Arr::has($component, 'class')) {
                 foreach($component as $key => $value)
                     $loader($value);
                 
                 return ;
             }
-             
-            Livewire::component(Arr::get($component, 'name'), Arr::get($component, 'component'));
+            
+            Livewire::component(Arr::get($component, 'component'), Arr::get($component, 'class'));
             
         };
 

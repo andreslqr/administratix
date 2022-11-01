@@ -1,1 +1,0 @@
-@livewire(config('administratix.livewire.components.admin.footer.name'))
