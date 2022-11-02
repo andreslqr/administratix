@@ -18,3 +18,4 @@
         <x-dynamic-component :component="config('administratix.views.components.icon.awesome.view')" name="user" />
     </x-dynamic-component>
 </header>
+
