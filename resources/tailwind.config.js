@@ -5,7 +5,27 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/**/*.blade.php',
         './resources/**/*.js',
-        './resources/**/*.vue'
+        './resources/**/*.vue',
+        './vendor/administratix/administratix/resources/**/*.blade.php',
+        './vendor/administratix/administratix/resources/**/*.js',
+        './vendor/administratix/admiistratix/config/**/*.php'
+    ],
+    safelist: [
+        {
+            pattern: /bg-(primary|secondary|danger|success|info|alert)/,
+        },
+        {
+            pattern: /border-(primary|secondary|danger|success|info|alert)/
+        },
+        {
+            pattern: /text-(primary|secondary|danger|success|info|alert)/
+        },
+        {
+            pattern: /shadow-(primary|secondary|danger|success|info|alert)/
+        },
+        {
+            pattern: /accent-(primary|secondary|danger|success|info|alert)/
+        }
     ],
     theme: {
         extend: {

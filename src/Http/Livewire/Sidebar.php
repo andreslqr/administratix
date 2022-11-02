@@ -14,7 +14,7 @@ class Sidebar extends Component
      * 
      * @var bool
     */
-    public bool $showSidebar;
+    public bool $showMenu;
 
     /**
      * The version mini of the sidebar
@@ -31,13 +31,22 @@ class Sidebar extends Component
     public Collection $menuItems;
 
     /**
+     * The listeners array
+     * 
+     * @var array
+     */
+    protected $listeners = [
+        'sidebarShowSmallMenu' => '$toggle("showSmallMenu")'
+    ];
+
+    /**
      * The mount method
      * 
      * @return void
      */
     public function mount()
     {
-        $this->showSidebar = false;
+        $this->showMenu = false;
         $this->showSmallMenu = false;
         $this->menuItems = Collection::make();
     }
