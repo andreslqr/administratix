@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+    darkMode: 'class',
     content: [
         './storage/framework/views/*.php',
         './resources/**/*.blade.php',
@@ -25,6 +26,21 @@ module.exports = {
         },
         {
             pattern: /accent-(primary|secondary|danger|success|info|alert)/
+        },
+        {
+            pattern: /rounded-(md|lg|full)/
+        },
+        {
+            pattern: /grid-cols-*/,
+            variants: ['sm', 'md', 'lg', 'xl', '2xl']
+        },
+        {
+            pattern: /grid-rows-*/,
+            variants: ['sm', 'md', 'lg', 'xl', '2xl']
+        },
+        {
+            pattern: /gap-*/,
+            variants: ['sm', 'md', 'lg', 'xl', '2xl']
         }
     ],
     theme: {
@@ -40,6 +56,7 @@ module.exports = {
                     DEFAULT: colors.slate['50'],
                     dark: colors.slate['800'],
                 },
+                overlay: "var(--color-overlay)",
                 primary: "var(--color-primary)",
                 secondary: "var(--color-secondary)",
                 danger: "var(--color-danger)",
@@ -49,6 +66,7 @@ module.exports = {
             },
             spacing: {
                 '256': '16rem',
+                '64': "4rem",
                 '56': '3.5rem'
             },
         },
@@ -58,7 +76,10 @@ module.exports = {
             'lg': '1024px',
             'xl': '1280px',
             '2xl': '1536px',
-        }
+        },
+        container: {
+            center: true,
+        },
     },
     plugins: [],
 }

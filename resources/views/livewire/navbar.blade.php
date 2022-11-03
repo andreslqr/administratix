@@ -5,7 +5,7 @@
     <div class="flex">
         <div class="w-auto lg:w-256 h-56 flex justify-center items-center">
             <div class="w-auto lg:w-3/4 h-3/4 lg:h-auto flex items-center">
-                {!! file_get_contents(resource_path('admin/images/logo/logo.svg')) !!}
+                <img src="{{ Vite::asset('resources/admin/images/logo/logo.svg') }}">
             </div>
         </div>
         <div class="hidden lg:block">
