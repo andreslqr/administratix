@@ -17,27 +17,20 @@ class Sidebar extends Component
     public bool $showMenu;
 
     /**
-     * The version mini of the sidebar
-     * 
-     * @var bool
-     */
-    public bool $showSmallMenu;
-
-    /**
      * The items added dynamically
      * 
      * @var \Illuminate\Support\Collection
      */
     public Collection $menuItems;
 
-    /**
-     * The listeners array
-     * 
-     * @var array
-     */
-    protected $listeners = [
-        'sidebarShowSmallMenu' => '$toggle("showSmallMenu")'
-    ];
+    protected function getListeners()
+    {
+        return [
+            config('administratix.general.livewire.events.sidebar.toggle-menu') => 'toggleSidebar',
+            config('administratix.general.livewire.events.sidebar.show-menu') => 'toggleSidebar',
+            config('administratix.general.livewire.events.sidebar.hide-menu') => 'toggleSidebar',
+        ];
+    } 
 
     /**
      * The mount method
@@ -47,7 +40,6 @@ class Sidebar extends Component
     public function mount()
     {
         $this->showMenu = false;
-        $this->showSmallMenu = false;
         $this->menuItems = Collection::make();
     }
 
@@ -71,5 +63,13 @@ class Sidebar extends Component
     public function render()
     {
         return View::make(config('administratix.livewire.components.admin.sidebar.view'));
+    }
+
+    public function toggleSidebar($value = null)
+    {
+        if(is_null($value))
+            return $this->showMenu = $value;
+
+        $this->showMenu = $value;
     }
 }
