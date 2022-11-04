@@ -65,6 +65,11 @@ class Sidebar extends Component
         return View::make(config('administratix.livewire.components.admin.sidebar.view'));
     }
 
+    /**
+     * Toggle the sidebar
+     * 
+     * @return void
+     */
     public function toggleSidebar($value = null)
     {
         if(is_null($value))
