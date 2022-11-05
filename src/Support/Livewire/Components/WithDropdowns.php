@@ -81,7 +81,7 @@ trait WithDropdowns
      * @param  string $name
      * @return bool
      */
-    public function isDrodownOpen($name)
+    public function isDropdownOpen($name)
     {
         return $this->getDropdown($name);
     }

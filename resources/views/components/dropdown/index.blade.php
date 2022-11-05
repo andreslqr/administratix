@@ -8,11 +8,11 @@
 @endphp
 
 
-<div {{ $attributes->merge(['class' => 'dropdown']) }} @if($name) x-data="{ open: @entangle('dropdowns.' . $name) }" x-bind:class="{'dropdown-open': open}" @endif>
+<div {{ $attributes->merge(['class' => 'dropdown']) }} @if($name) x-data="{ open: $wire.entangle('dropdowns.{{ $name }}') }" x-bind:class="{'dropdown-open': open}" @endif>
     <label tabindex="0" @if($name) x-on:click="open = true" @endif>
         {{ $trigger }}
     </label>
-    <div {{ $content->attributes->merge(['class' => 'dropdown-content']) }} @if($name) x-on:click.outside="open = false" @endif>
+    <div  tabindex="0" {{ $content->attributes->merge(['class' => 'dropdown-content']) }} @if($name) x-on:click.outside="open = false" @endif>
         {{ $content }}
     </div>
 </div>
