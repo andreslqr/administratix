@@ -34,10 +34,10 @@ trait WithDropdowns
      */
     public function toggleDropdown($name)
     {
-        isset($this->dropdowns[$name]);
-            return $this->dropdowns[$name] = true;
-
-        $this->dropdowns[$name] = !$this->dropdowns[$name];
+        if(array_key_exists($name, $this->dropdowns))
+            return $this->dropdowns[$name] = ! $this->dropdowns[$name];
+        
+        $this->dropdowns[$name] = true;
     }
 
     /**
@@ -70,7 +70,7 @@ trait WithDropdowns
      */
     public function getDropdown($name)
     {
-        return isset($this->dropdowns[$name]) ? 
+        return array_key_exists($name, $this->dropdowns) ? 
                 $this->dropdowns[$name] :
                 false;
     }

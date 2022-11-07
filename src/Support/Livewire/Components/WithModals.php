@@ -34,10 +34,10 @@ trait WithModals
      */
     public function toggleModal($name)
     {
-        isset($this->modals[$name]);
-            return $this->modals[$name] = true;
-
-        $this->modals[$name] = !$this->modals[$name];
+        if(array_key_exists($name, $this->modals))
+            return $this->modals[$name] = ! $this->modals[$name];
+        
+        $this->alerts[$name] = true; 
     }
 
     /**
@@ -70,7 +70,7 @@ trait WithModals
      */
     public function getModal($name)
     {
-        return isset($this->modals[$name]) ? 
+        return array_key_exists($name, $this->modals) ? 
                 $this->modals[$name] :
                 false;
     }
