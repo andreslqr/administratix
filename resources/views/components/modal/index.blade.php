@@ -42,7 +42,7 @@
         <script>
             document.addEventListener('livewire:load', function () {
                 if(typeof @this.get('modals.{{ $name }}') === 'undefined')
-                    window.alert("Declare the '{{ $name }}' key of the $modal property as a boolean data type");
+                    window.alert("Declare the '{{ $name }}' key of the $modals property as a boolean data type");
             });
         </script>
     @endpush
