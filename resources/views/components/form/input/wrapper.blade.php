@@ -2,6 +2,6 @@
     'vertical' => false  
 ])
 
-<label {{ $attributes->merge(['class' => 'input-group'])->class(['input-group-vertical' => $vertical]) }}>
+<div {{ $attributes->merge(['class' => 'input-group'])->class(['input-group-vertical' => $vertical]) }}>
     {{ $slot }}
-</label>
+</div>
