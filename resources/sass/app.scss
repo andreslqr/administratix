@@ -2,3 +2,8 @@
 @import "tailwindcss";
 @import "global";
 @import "components/icon/awesome/fontawesome";
+
+
+@import "plugins/flatpickr";
+@import "plugins/filepond";
+@import "plugins/choices.scss";
