@@ -1,1 +1,5 @@
 @import "choices.js/src/styles/choices";
+
+.choices__input {
+    @apply bg-transparent #{!important};
+}
