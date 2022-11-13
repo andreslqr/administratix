@@ -1,5 +1,5 @@
 @props([
-
+    'options' => false
 ])
 
 
@@ -14,30 +14,18 @@
 
 @endphp
 
-<div x-data="{selected: {{ $var }},  instance: null}" wire:ignore>
+<div x-data="{selected: {{ $var }},  instance: null}" x-init="$watch('selected', (value) => instance.setChoiceByValue(value))" wire:ignore>
     <select multiple x-init="instance = new Choices($el, {
-        choices: [{
-  value: 'Option 1',
-  label: 'Option 1',
-  selected: true,
-  disabled: false,
-},
-{
-  value: 'Option 2',
-  label: 'Option 2',
-  selected: false,
-  customProperties: {
-    description: 'Custom description about Option 2',
-    random: 'Another random custom property'
-  },
-}]
-,
-        classNames: {
-            containerInner: 'flex input input-bordered gap-x-1',
-            listItems: 'flex h-full items-center gap-x-1',
-            item: 'badge py-2'
-        },
-    })">
+            @if($options) 
+                choices: @js($options), 
+            @endif
+                classNames: {
+                    
+                },
+        });
+        instance.passedElement.element.addEventListener('change', (e) => console.log(1));
+        instance.passedElement.element.addEventListener('change', (e) => selected = instance.getValue(true));
+    ">
 
     </select>
 </div>
