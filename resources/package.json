@@ -15,6 +15,7 @@
         "@editorjs/list": "^1.7.0",
         "@editorjs/quote": "^2.4.0",
         "@editorjs/raw": "^2.3.1",
+        "@editorjs/table": "^2.1.0",
         "@editorjs/simple-image": "^1.4.1",
         "@fortawesome/fontawesome-free": "^6.1.1",
         "alpinejs": "^3.10.2",
