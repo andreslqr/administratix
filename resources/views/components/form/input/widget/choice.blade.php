@@ -26,7 +26,7 @@
     
 @endphp
 
-<div x-data="{ selected: {{ $var }}, instance: null, @if($source) source: async (value) => {
+<div x-data="{ selected: {{ $var }}, instance: null, @if($source) search: '', source: async (value) => {
     let items = await $wire.call('{{ $source }}', value);
 
     if(Array.isArray(items)) {
@@ -48,20 +48,27 @@
     
     return items;
 
-} @endif }" x-init="$watch('selected', value => instance.removeActiveItems() && instance.setChoiceByValue(value))" wire:ignore>
+} @endif }" x-init="$watch('selected', value => instance.removeActiveItems() && instance.setChoiceByValue(value));
+                    @if($source)
+                        $watch('search', value => instance.setChoices(() => source(value), 'value', 'label', true)); 
+                    @endif
+" wire:ignore>
     <select @if($multiple) multiple @endif x-init="instance = new Choices($el, {
         ...{
             @if($options && !$source)
                 choices: @js($options),
             @endif
+            classNames: {
+                containerInner: 'input input-bordered min-h-[3rem] h-auto',
+                itemSelectable: 'badge'
+            }
         },
         ...@js($config)
     });
-    instance.passedElement.element.addEventListener('change', (e) => selected = instance.getValue(true));
+    instance.passedElement.element.addEventListener('change', () => selected = instance.getValue(true));
     @if($source)
-        instance.passedElement.element.addEventListener('search', (e) => instance.setChoices(() => source(e.detail.value)));
-        instance.passedElement.element.addEventListener('change', (e) => instance.setChoices(() => source(e.detail.value)));
-        instance.passedElement.element.addEventListener('showDropdown', (e) => instance.setChoices(() => source(e.detail.value)));
+        instance.passedElement.element.addEventListener('search', (e) => search = e.detail.value);
+        instance.passedElement.element.addEventListener('showDropdown', () => instance.setChoices(() => source(search), 'value', 'label', true));
     @endif
     ">
 
