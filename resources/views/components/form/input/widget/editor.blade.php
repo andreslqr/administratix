@@ -1,5 +1,5 @@
 @props([
-    
+    'logLevel' => 'ERROR'
 ])
 
 
@@ -23,7 +23,8 @@
     holder: $el,
     data: content,
     onChange: async (api, e) => content = await instance.save(),
-    
+    tools: window.editorPlugins,
+    logLevel: '{{ $logLevel }}'
 })" wire:ignore>
 
 </div>
