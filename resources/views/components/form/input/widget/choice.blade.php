@@ -59,8 +59,7 @@
                 choices: @js($options),
             @endif
             classNames: {
-                containerInner: 'input input-bordered min-h-[3rem] h-auto',
-                itemSelectable: 'badge'
+                containerInner: 'input input-bordered flex items-center'
             }
         },
         ...@js($config)
