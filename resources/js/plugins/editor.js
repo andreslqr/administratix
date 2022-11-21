@@ -1,24 +1,32 @@
 import EditorJS from '@editorjs/editorjs'; 
-import Header from '@editorjs/header';
-import Link from '@editorjs/link';
-import Raw from '@editorjs/raw';
-import Image from '@editorjs/simple-image';
-import CheckList from '@editorjs/checklist';
-import List from '@editorjs/list';
-import Quote from '@editorjs/quote';
-import Delimiter from '@editorjs/delimiter';
-import Table from '@editorjs/table';
+import header from '@editorjs/header';
+import link from '@editorjs/link';
+import raw from '@editorjs/raw';
+import simpleImage from '@editorjs/simple-image';
+import checkList from '@editorjs/checklist';
+import list from '@editorjs/list';
+import quote from '@editorjs/quote';
+import delimiter from '@editorjs/delimiter';
+import table from '@editorjs/table';
+import warning from '@editorjs/warning';
+import paragraph from '@editorjs/paragraph';
+import marker from '@editorjs/marker';
+import inlineCode from '@editorjs/inline-code';
 
 window.Editor = EditorJS;
 
 window.editorPlugins = {
-    header: Header,
-    link: Link,
-    raw: Raw,
-    image: Image,
-    checkList: CheckList,
-    list: List,
-    quote: Quote,
-    delimeter: Delimiter,
-    table: Table
+    header,
+    link,
+    raw,
+    simpleImage,
+    checkList,
+    list,
+    quote,
+    delimiter,
+    table,
+    warning,
+    paragraph,
+    marker,
+    inlineCode,
 };

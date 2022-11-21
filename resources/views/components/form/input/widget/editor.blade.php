@@ -1,5 +1,6 @@
 @props([
-    'logLevel' => 'ERROR'
+    'logLevel' => 'ERROR',
+    'allChanges' => false
 ])
 
 
@@ -19,12 +20,19 @@
 @endphp
 
 
-<div {{ $attributes->merge(['class' => 'mockup-window border bg-base-300'])->whereDoesntStartWith('wire') }} x-data="{ content: {{ $var }}, instance: null }" x-init="instance = new Editor({
-    holder: $el,
-    data: content,
-    onChange: async (api, e) => content = await instance.save(),
-    tools: window.editorPlugins,
-    logLevel: '{{ $logLevel }}'
-})" wire:ignore>
+<div {{ $attributes->merge(['class' => 'mockup-window border bg-base-100 px-3'])->whereDoesntStartWith('wire') }} x-data="{ content: {{ $var }}, instance: null }" x-init="instance = new Editor({
+        holder: $el,
+        data: content,
+        @if($allChanges)
+            onChange: async (api, e) => content = await instance.save(),
+        @else
+            onChange: async (api, e) => e.type === 'block-added' ? content = await instance.save() : null,
+        @endif
+        tools: window.editorPlugins,
+        logLevel: '{{ $logLevel }}'
+    });
+    {{-- $watch('content', value => instance.render(value)) --}}
+    " 
+wire:ignore>
 
 </div>
