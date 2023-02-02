@@ -3,7 +3,8 @@
     'asTitle' => false,
     'bordered' => false,
     'borderedOnHover' => false,
-    'disabled' => false
+    'disabled' => false,
+    'anchorClass' => null
 ])
 
 @php
@@ -18,14 +19,13 @@
 
 
 <li {{ $attributes->class([
-                'active' => $active, 
                 'menu-title' => $asTitle, 
                 'bordered' => $bordered, 
                 'hover-bordered' => $borderedOnHover, 
                 'disabled' => $disabled
             ])->filter(fn ($value, $key) => !in_array($key, $anchorAttributes)) }}>
 
-    <a {{ $attributes->filter(fn ($value, $key) => in_array($key, $anchorAttributes))  }}>
+    <a {{ $attributes->filter(fn ($value, $key) => in_array($key, $anchorAttributes))  }} class="{{ $anchorClass }} @if($active) active @endif">
         {{ $slot }}
     </a>
 

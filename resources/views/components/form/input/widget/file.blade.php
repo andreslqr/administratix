@@ -6,6 +6,7 @@
     $name = $attributes->wire('model')->value;
     $defer = $attributes->wire('model')->hasModifier('defer');
 @endphp
+
 <div x-data="{ files: $wire.entangle('{{ $name }}'), instance: null }" wire:ignore x-init="$wire.on('{{ config('administratix.general.livewire.events.file.remove-files') }}', (indexes) => instance.removeFiles(indexes))">
     <input {{ $attributes->merge(['multiple' => $multiple])->whereDoesntStartWith('wire') }} x-init="instance = FilePond.create($el, {
             server: {
@@ -25,3 +26,12 @@
         });
     ">
 </div>
+
+@once
+    @push('styles')
+        @vite('resources/admin/sass/plugins/filepond.scss')
+    @endpush
+    @push('scripts')
+        @vite('resources/admin/js/plugins/filepond.js')
+    @endpush
+@endonce

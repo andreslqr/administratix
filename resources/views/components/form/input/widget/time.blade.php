@@ -57,3 +57,13 @@
         </script>
     @endpush
 @endif
+
+
+@once
+    @push('styles')
+        @vite('resources/admin/sass/plugins/flatpickr.scss')
+    @endpush
+    @push('scripts')
+        @vite('resources/admin/js/plugins/flatpickr.js')
+    @endpush
+@endonce

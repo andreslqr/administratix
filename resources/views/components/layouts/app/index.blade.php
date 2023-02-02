@@ -26,9 +26,9 @@
             @livewire(config('administratix.livewire.components.admin.sidebar.component'))
         </div>
         
-        @vite('resources/admin/js/app.js')
         @livewireScripts
         @yield('scripts')
         @stack('scripts')
+        @vite('resources/admin/js/app.js')
     </body>
 </html>

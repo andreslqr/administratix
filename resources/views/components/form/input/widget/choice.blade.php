@@ -73,3 +73,13 @@
 
     </select>
 </div>
+
+
+@once
+    @push('styles')
+        @vite('resources/admin/sass/plugins/choices.scss')
+    @endpush
+    @push('scripts')
+        @vite('resources/admin/js/plugins/choices.js')
+    @endpush
+@endonce
