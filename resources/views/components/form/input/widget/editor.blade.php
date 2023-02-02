@@ -33,6 +33,9 @@ wire:ignore>
 </div>
 
 @once
+    @push('styles')
+        @vite('resources/admin/sass/plugins/editor.scss')
+    @endpush
     @push('scripts')
         @vite('resources/admin/js/plugins/editor.js')
     @endpush
