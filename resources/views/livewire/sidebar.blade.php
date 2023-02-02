@@ -8,7 +8,7 @@
         </div>
         <x-dynamic-component :component="config('administratix.views.components.menu.view')" class="p-2 pl-0">
             @foreach($this->items as $item)
-                <x-dynamic-component :component="config('administratix.views.components.menu.item.view')" class="rounded-l-none active:rounded-l-none rounded-r-full" active> 
+                <x-dynamic-component :component="config('administratix.views.components.menu.item.view')" anchor-class="rounded-l-none active:!rounded-l-none !rounded-r-full" active> 
                     @if($item->getIconName())
                         <x-dynamic-component :component="$item->getIconComponent()" :name="$item->getIconName()" /> 
                     @endif

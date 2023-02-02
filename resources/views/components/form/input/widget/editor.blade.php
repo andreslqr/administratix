@@ -21,7 +21,7 @@
         data: content,
         onChange: async (api, e) => {
             let data = await instance.save();
-            $wire.set('{{ $name }}' @if($defer) , true @endif);
+            $wire.set('{{ $name }}', data @if($defer) , true @endif);
         },
         tools: window.editorPlugins,
         logLevel: '{{ $logLevel }}'

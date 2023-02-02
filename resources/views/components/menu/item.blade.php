@@ -3,7 +3,8 @@
     'asTitle' => false,
     'bordered' => false,
     'borderedOnHover' => false,
-    'disabled' => false
+    'disabled' => false,
+    'anchorClass' => null
 ])
 
 @php
@@ -24,7 +25,7 @@
                 'disabled' => $disabled
             ])->filter(fn ($value, $key) => !in_array($key, $anchorAttributes)) }}>
 
-    <a {{ $attributes->filter(fn ($value, $key) => in_array($key, $anchorAttributes))  }} @if($active) class="active" @endif>
+    <a {{ $attributes->filter(fn ($value, $key) => in_array($key, $anchorAttributes))  }} class="{{ $anchorClass }} @if($active) active @endif">
         {{ $slot }}
     </a>
 
