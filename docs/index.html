@@ -1,13 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        
-        <script type="module" src="./main.js"></script>
-</body>
-</html>
+{{#> layouts/guest }}
+<div class="hero min-h-screen bg-base-200">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="mb-auto">
+        <path fill="#047AFF" fill-opacity="0.05"
+            d="M0,128L30,154.7C60,181,120,235,180,224C240,213,300,139,360,96C420,53,480,43,540,64C600,85,660,139,720,133.3C780,128,840,64,900,37.3C960,11,1020,21,1080,48C1140,75,1200,117,1260,122.7C1320,128,1380,96,1410,80L1440,64L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+        </path>
+    </svg>
+    <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="rounded-lg shadow-2xl">
+            <div class="mockup-code" x-data="{
+                text: '',
+                'write': 'php artisan make:admin'
+            }" x-init="setInterval(() => {
+
+                if(write == '')
+                {
+                    write = text; 
+                    text = '';
+                }
+
+            let original = write.split('');
+
+                text += original.shift();
+                write = original.join('');
+            }, 100)">
+                <pre data-prefix="$"><code x-text="text"></code></pre>
+                <pre data-prefix=">" class="text-success"><code>Done?</code></pre>
+            </div>
+        </div>
+        <div>
+            <h1 class="text-5xl font-bold max-w-2xl">
+                Make administrators in <a href="https://laravel.com" target="_blank" class="text-[#F9322C]">Laravel</a> is hard
+            </h1>
+            <p class="py-6 text-xl pr-10">
+                Build modern administrators ui for apps is complex, hard, and <span class="text-red-500">insane</span> for full-stack developers, the front-end tools are more and more,
+                lets make it simple. Meet <a href="/" class="link link-primary">Administratix</a>, a toolbox based in <a href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a> as a back-end solver an <a href="https://daisyui.com" target="_blank" class="link text-[#661ae6]"> DaisyUI </a> as a front-end solver
+            </p>
+            <a class="btn btn-primary" href="/get-started">Get Started</a>
+        </div>
+
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="mt-auto">
+        <path fill="#047AFF" fill-opacity="0.05"
+            d="M0,128L30,154.7C60,181,120,235,180,224C240,213,300,139,360,96C420,53,480,43,540,64C600,85,660,139,720,133.3C780,128,840,64,900,37.3C960,11,1020,21,1080,48C1140,75,1200,117,1260,122.7C1320,128,1380,96,1410,80L1440,64L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+        </path>
+    </svg>
+
+</div>
+{{/layouts/guest }}

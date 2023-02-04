@@ -31,10 +31,16 @@ module.exports = {
         prefix: "",
         darkTheme: "dark",
     },
-    
+    content: [
+        './**/*.html',
+        './**/*.hbs'
+    ], 
     theme: {
         extend: {
            
+        },
+        container: {
+            center: true,
         },
         screens: {
             'sm': '640px',

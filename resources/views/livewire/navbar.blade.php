@@ -1,4 +1,4 @@
-<header class="sticky top-0 shadow-md">
+<header class="sticky top-0 shadow-md z-1">
     <div class="navbar bg-base-100">
         <div class="navbar-start">
             <x-dynamic-component :component="config('administratix.views.components.button.view')" ghost circle class="lg:hidden shadow" x-on:click="showSidebar = !showSidebar">
