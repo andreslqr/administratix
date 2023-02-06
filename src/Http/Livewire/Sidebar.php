@@ -17,6 +17,13 @@ class Sidebar extends Component
     public bool $showMenu;
 
     /**
+     * The router type
+     * 
+     * @var string
+     */
+    public $routerType;
+
+    /**
      * The items added dynamically
      * 
      * @var \Illuminate\Support\Collection
@@ -37,8 +44,9 @@ class Sidebar extends Component
      * 
      * @return void
      */
-    public function mount()
+    public function mount($routerType = null)
     {
+        $this->routerType = $routerType ?: config('administratix.general.default-route-type');
         $this->showMenu = false;
         $this->menuItems = Collection::make();
     }
@@ -51,7 +59,7 @@ class Sidebar extends Component
     public function getItemsProperty()
     {
         return $this->menuItems->merge(
-            RouteManager::getRoutes(config('administratix.general.default-route-type'))
+            RouteManager::getRoutes($this->routerType)
         );
     }
 

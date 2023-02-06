@@ -1,3 +1,8 @@
+@props([
+    'routerType' => null
+])
+
+
 <!DOCTYPE html>
 <html lang="{{  str_replace('_', '-', app()->getLocale()) }}" data-theme="{{ config('administratix.general.theme') }}">
     <head>
@@ -23,7 +28,7 @@
                 @livewire(config('administratix.livewire.components.admin.footer.component'))
             </div>
             
-            @livewire(config('administratix.livewire.components.admin.sidebar.component'))
+            @livewire(config('administratix.livewire.components.admin.sidebar.component'), ['routerType' => $routerType])
         </div>
         
         @livewireScripts
