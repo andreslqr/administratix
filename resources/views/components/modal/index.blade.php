@@ -9,7 +9,7 @@
 
 @php
     $name = $attributes->wire('modal')->value;
-    $id = $name ?? $id;
+    $id = $name ?: $id;
 @endphp
 
 

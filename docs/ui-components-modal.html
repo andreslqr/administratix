@@ -1,0 +1,250 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Modal 
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a> Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/modal" target="_blank" class="link text-[#661ae6]">Daisy Modals</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        id
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Required to work without Livewire
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        content
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use as slot for the hidden content
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        actions
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use as slot for the action section of the modal, like buttons
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        with-close
+                    </td>
+                    <td>
+                        Boolean 
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Show an X button for close
+                    </td>
+                    <td>
+                        false 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        static
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        You can't close the modal clicking outside
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Modal
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto h-64">
+                <div x-show="active == 'preview'" class="h-64 preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <label for="my-modal" class="btn">open modal</label>
+
+                    <input type="checkbox" id="my-modal" class="modal-toggle" />
+                    <div class="modal">
+                        <div class="modal-box">
+                            <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+                            <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                            <div class="modal-action">
+                                <label for="my-modal" class="btn">Yay!</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;label for="modal" class="btn"&#62;open modal&#60;/label&#62;</code>
+        <code>&#60;x-admin::modal id="modal"&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h3 class="font-bold text-lg">Congratulations random Internet user!&#60;/h3&#62;</code>
+                <code>&#60;p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!&#60;/p&#62;</code>
+                <code>&#60;x-slot name="actions"&#62;</code>
+                    <code>&#60;label for="my-modal" class="btn"&#62;Yay!&#60;/label&#62;</code>
+                <code>&#60;/x-slot&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::modal&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Controlling from Livewire
+        </h2>
+
+        <p class="mt-6">
+            You can control any modal of your form from livewire if you add the <code>\Administratix\Administratix\Support\Livewire\Components\WithModals</code> trait in your component, then you can access to any method
+
+        </p>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'livewire' ? 'tab-active' : ''" x-on:click="active = 'livewire'">Livewire</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto h-64">
+                <div x-show="active == 'preview'" class="h-64 preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <label for="my-modal" class="btn">open modal</label>
+
+                    <input type="checkbox" id="my-modal" class="modal-toggle" />
+                    <div class="modal">
+                    <div class="modal-box">
+                        <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+                        <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                        <div class="modal-action">
+                            <label for="my-modal" class="btn">Yay!</label>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button wire:click="showModal('myModal')"&#62;open modal&#60;/x-admin::button&#62;</code>
+        <code>&#60;x-admin::modal wire:modal="myModal"&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h3 class="font-bold text-lg">Congratulations random Internet user!&#60;/h3&#62;</code>
+                <code>&#60;p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!&#60;/p&#62;</code>
+                <code>&#60;x-slot name="actions"&#62;</code>
+                    <code>&#60;label for="my-modal" class="btn"&#62;Yay!&#60;/label&#62;</code>
+                <code>&#60;/x-slot&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::modal&#62;</code>
+    </pre>
+                </div>
+                <div x-show="active == 'livewire'">
+    <pre class="language-php">
+        <code>&#60;?php</code>
+
+        <code>class MyLivewireComponent extends Component</code>
+        <code>{</code>
+            <code>use \Administratix\Administratix\Support\Livewire\Components\WithModals;</code>
+            
+            <code>/**</code>
+            <code>* The initial state of the modals elements</code>
+            <code>* </code>
+            <code>* @var array</code>
+            <code>*/</code>
+            <code>public $modals = [</code>
+                <code>'myModal' => false</code>
+            <code>];</code>
+
+            <code>public function editData()</code>
+            <code>{</code>
+                <code>$this->toggleModal('myModal'); // Toggle the modal open / close</code>
+
+                <code>$this->showModal('myModal'); // Show the modal</code>
+
+                <code>$this->hideModal('myModal'); // Hide the modal</code>
+
+                <code>$this->getModal('myModal'); // Return true or false depending if the modal is open or not</code>
+
+                <code>if($this->isModalOpen('myModal')) // Check if the modal is open</code>
+                    <code>$this->doSomething();</code>
+
+                <code>if($this->isDropdownClosed('myModal')) // Check if the modal is closed</code>
+                    <code>$this->doSomenthing();</code>
+            }
+        <code>}</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{/layouts/app }}
