@@ -1,0 +1,194 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Dropdown
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a> Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/dropdown" target="_blank" class="link text-[#661ae6]">Daisy Drodowns</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        trigger
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use as slot for the trigger dropdown
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        content
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use as slot for the hidden content
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Dropdown menu
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto h-64">
+                <div x-show="active == 'preview'" class="h-64 preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="dropdown dropdown-end">
+                        <label tabindex="0" class="btn m-1">Click</label>
+                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 2</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::dropdown&#62;</code>
+            <code>&#60;x-slot name="trigger"&#62;</code>
+                <code>&#60;x-admin::button&#62;</code>
+                    click
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content" class="menu p-2 shadow bg-base-100 rounded-box w-52"&#62;</code>
+                <code>&#60;li&#62;&#60;a&#62;Item 1&#60;/a&#62;&#60;/li&#62;</code>
+                <code>&#60;li&#62;&#60;a&#62;Item 2&#60;/a&#62;&#60;/li&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::dropdown&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Controlling from Livewire
+        </h2>
+
+        <p class="mt-6">
+            You can control any dropdown of your form from livewire if you add the <code>\Administratix\Administratix\Support\Livewire\Components\WithDropdowns</code> trait in your component, then you can access to any method
+
+        </p>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'livewire' ? 'tab-active' : ''" x-on:click="active = 'livewire'">Livewire</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto h-64">
+                <div x-show="active == 'preview'" class="h-64 preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="dropdown dropdown-end">
+                        <label tabindex="0" class="btn m-1">Click</label>
+                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 2</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::dropdown wire:dropdown="firstMenu"&#62;</code>
+            <code>&#60;x-slot name="trigger"&#62;</code>
+                <code>&#60;x-admin::button&#62;</code>
+                    click
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content" class="menu p-2 shadow bg-base-100 rounded-box w-52"&#62;</code>
+                <code>&#60;li&#62;&#60;a&#62;Item 1&#60;/a&#62;&#60;/li&#62;</code>
+                <code>&#60;li&#62;&#60;a&#62;Item 2&#60;/a&#62;&#60;/li&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::dropdown&#62;</code>
+    </pre>
+                </div>
+                <div x-show="active == 'livewire'">
+    <pre class="language-php">
+        <code>&#60;?php</code>
+
+        <code>class MyLivewireComponent extends Component</code>
+        <code>{</code>
+            <code>use \Administratix\Administratix\Support\Livewire\Components\WithDropdowns;</code>
+            
+            <code>/**</code>
+            <code>* The initial data of the dropdown elements</code>
+            <code>* </code>
+            <code>* @var array</code>
+            <code>*/</code>
+            <code>public $dropdowns = [</code>
+                <code>'firstMenu' => false</code>
+            <code>];</code>
+
+            <code>public function editData()</code>
+            <code>{</code>
+                <code>$this->toggleDropdown('firstMenu'); // Toggle the dropdown open / close</code>
+
+                <code>$this->showDropdown('firstMenu'); // Show the dropdown</code>
+
+                <code>$this->hideDropdown('firstMenu'); // Hide the dropdown</code>
+
+                <code>$this->getDropdown('firstMenu'); // Return true or false depending if the dropdown is open or not</code>
+
+                <code>if($this->isDropdownOpen('firstMenu')) // Check if the menu is open</code>
+                    <code>$this->doSomething();</code>
+
+                <code>if($this->isDropdownClosed('firstMenu')) // Check if the menu is closed</code>
+                    <code>$this->doSomenthing();</code>
+            }
+        <code>}</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{/layouts/app }}
