@@ -7,7 +7,12 @@
             </a>
         </div>
         <div class="menu p-2 pl-0" x-data="{ currentRoute: window.location.pathname }">
-            <li><a href="./../quickstart.html" :class="{ 'active': $el.getAttribute('href') == currentRoute }" x-init="console.log($el.getAttribute('href'))">Item 1</a></li>
+            <li>
+                <a href="./../quickstart.html" :class="{ 'active': $el.getAttribute('href') == currentRoute }" class="rounded-l-none active:!rounded-l-none !rounded-r-full">
+                    <i class="fa-solid fa-circle-play"></i>
+                    Quickstart
+                </a>
+            </li>
         </div>
     </aside>
 </div>
