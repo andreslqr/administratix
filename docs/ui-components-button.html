@@ -1,0 +1,721 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Button
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a> Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/button" target="_blank" class="link text-[#661ae6]">Daisy Buttons</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        content
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use instead of default laravel slot components
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        loading
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show the loading state of the button
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ghost
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show button in ghost state
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        as-link
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show the button as a anchor tag
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        no-animation
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Remove all the animations
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        active
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show as it was clicked
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        outline
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show the button with borders and without bakground color
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        wide
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        More horizontal padding
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        glass
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Glass effect
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        disabled
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show the disabled state
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        square
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show as square (recommended for icons)
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        circle 
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show as circle (recommended for icons)
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        block
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Use the full width
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        text-loading
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        The text showed when is in loading state
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Buttons with colors
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn">
+                        Button
+                    </button>
+                    <button class="btn btn-primary">
+                        Primary
+                    </button>
+                    <button class="btn btn-secondary">
+                        Secondary
+                    </button>
+                    <button class="btn btn-accent">
+                        Accent
+                    </button>
+                    <button class="btn btn-info">
+                        Info
+                    </button>
+                    <button class="btn btn-success">
+                        Success
+                    </button>
+                    <button class="btn btn-warning">
+                        Warning
+                    </button>
+                    <button class="btn btn-error">
+                        Error 
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+        <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+            PRIMARY
+        <code>&#60;/x-admin::button&#62;</code>
+        <code>&#60;x-admin::button class="btn-secondary"&#62;</code>
+            SECONDARY
+        <code>&#60;/x-admin::button&#62;</code>
+        <code>&#60;x-admin::button class="btn-accent"&#62;</code>
+            ACCENT
+        <code>&#60;/x-admin::button&#62;</code>
+        <code>&#60;x-admin::button class="btn-info"&#62;</code>
+            INFO
+        <code>&#60;/x-admin::button&#62;</code>
+        <code>&#60;x-admin::button class="btn-success"&#62;</code>
+            SUCCESS
+        <code>&#60;/x-admin::button&#62;</code>
+        <code>&#60;x-admin::button class="btn-warning"&#62;</code>
+            WARNING
+        <code>&#60;/x-admin::button&#62;</code>
+        <code>&#60;x-admin::button class="btn-error"&#62;</code>
+            ERROR
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button ghost
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn btn-ghost">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button ghost&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button as link
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn btn-link">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button as-link&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button loading
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn loading">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button loading&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button without animation
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn no-animation">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button no-animation&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button active
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn btn-active">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button active&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button outline
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn btn-outline">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button outline&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button wide
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn btn-wide">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button wide&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button glass
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined" style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)">
+                    <button class="btn glass">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button glass&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button disabled
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn" disabled>
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button disabled&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button square
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn btn-square">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button square&#62;</code>
+            X
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button circle
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn btn-circle">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button circle&#62;</code>
+            X
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Button block
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <button class="btn btn-block">
+                        Button
+                    </button>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button block&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::button&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/layouts/app }}

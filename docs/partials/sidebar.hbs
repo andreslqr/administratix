@@ -8,9 +8,17 @@
         </div>
         <div class="menu p-2 pl-0" x-data="{ currentRoute: window.location.pathname }">
             <li>
-                <a href="./../quickstart.html" :class="{ 'active': $el.getAttribute('href') == currentRoute }" class="rounded-l-none active:!rounded-l-none !rounded-r-full">
+                <a href="./../quickstart.html">
                     <i class="fa-solid fa-circle-play"></i>
                     Quickstart
+                </a>
+            </li>
+            <li class="menu-title">
+                <span>UI Components - Actions</span>
+            </li>
+            <li>
+                <a href="./../ui-components-button.html">
+                    Button
                 </a>
             </li>
         </div>

@@ -12,7 +12,6 @@
     'square' => false,
     'circle' => false,
     'block' => false,
-    'loading' => false,
     'textLoading' => null,
 ])
 

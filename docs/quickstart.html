@@ -1,46 +1,72 @@
 {{#> layouts/app }}
 
-    <div class="container pt-3">
-        <h1 class="text-5xl font-bold">
-            Quickstart
-        </h1>
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Quickstart
+    </h1>
 
-        <h2 class="text-3xl font-bold mt-6">
-            Install Administratix
-        </h2>
+    <h2 class="text-3xl font-bold mt-6">
+        Install Administratix
+    </h2>
 
-        <div class="mt-6">
-            Install the php dependency
-        </div>
+    <div class="mt-6">
+        Install the php dependency
+    </div>
 
-        <div class="rounded-lg shadow-2xl mt-6">
-            <div class="mockup-code">
-                <pre data-prefix="$"><code>composer require administratix/administratix</code></pre>
-            </div>
-        </div>
-
-        <div class="mt-6">
-            Then run the artisan installer
-        </div>
-
-        <div class="rounded-lg shadow-2xl mt-6">
-            <div class="mockup-code">
-                <pre data-prefix="$"><code>php artisan administratix:install</code></pre>
-            </div>
-        </div>
-
-        <h2 class="text-3xl font-bold mt-6">
-            Using the layout
-        </h2>
-        <p class="mt-6">
-            After this, you can use the layouts
-        </p>
-        <div class="mockup-window border border-base-300 mt-6">
-            <pre><code class="language-html">&#60;x-admin::layouts.app&#62;</code><code class="language-html">&#60;/x-admin::layouts.app&#62;</code>
-            </pre>
-        </div>
-        <div class="rounded-lg shadow-2xl mt-6">
+    <div class="rounded-lg shadow-2xl mt-6">
+        <div class="mockup-code">
+            <pre data-prefix="$"><code>composer require administratix/administratix</code></pre>
         </div>
     </div>
+
+    <div class="mt-6">
+        Then run the artisan installer
+    </div>
+
+    <div class="rounded-lg shadow-2xl mt-6">
+        <div class="mockup-code">
+            <pre data-prefix="$"><code>php artisan administratix:install</code></pre>
+        </div>
+    </div>
+
+    <h2 class="text-3xl font-bold mt-6">
+        Using the layout
+    </h2>
+    <p class="mt-6">
+        After this, you can use the layouts
+    </p>
+    <div class="mockup-window border border-base-300 mt-6">
+<pre class="language-html">
+<code>&#60;x-admin::layouts.app&#62;</code>
+    <code>&#60;!-- your content here --&#62;</code>
+<code>&#60;/x-admin::layouts.app&#62;</code>
+</pre>
+    </div>
+
+    <h3 class="text-3xl font-bold mt-6">
+        Adding routes
+    </h3>
+
+    <p class="mt-6">
+        To add routes in the sidebar, use the <code class="language-php">Route::admin()</code> facade into your routes file <code>routes/web.php</code>
+    </p>
+
+    <div class="mockup-window border border-base-300 mt-6">
+<pre class="language-php">
+<code>&#60;?php</code>
+<code></code>
+<code>Route::admin(</code>
+    <code>method: 'GET',</code>
+    <code>uri: '/',</code>
+    <code>action: function() {</code>
+        <code>return view('index');</code>
+    <code>},</code>
+    <code>display: 'Home',</code>
+    <code>iconComponent: 'admin::icon.awesome',</code>
+    <code>iconName: 'home'</code>
+);
+</pre>
+    </div>
+</div>
 
 {{/layouts/app}}
