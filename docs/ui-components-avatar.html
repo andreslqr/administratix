@@ -1,0 +1,160 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Avatar
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a
+            href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a>
+        Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/avatar"
+            target="_blank" class="link text-[#661ae6]">Daisy Avatars</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        content
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use for display image or text
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        online
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show badge with status active
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Avatar
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="avatar">
+                        <div class="w-24 rounded">
+                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        </div>
+                    </div>
+                    <div class="avatar placeholder">
+                        <div class="bg-neutral-focus text-neutral-content rounded w-24">
+                            <span class="text-3xl">JD</span>
+                        </div>
+                    </div> 
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::avatar class="w-32 rounded" content="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::avatar&#62;</code>
+        <code>&#60;x-admin::avatar class="w-32 rounded" content="Jhon Doe"&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::avatar&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Avatar online
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="avatar online">
+                        <div class="w-24 rounded-full">
+                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        </div>
+                    </div>
+                    <div class="avatar placeholder online">
+                        <div class="bg-neutral-focus text-neutral-content rounded-full w-24">
+                            <span class="text-3xl">JD</span>
+                        </div>
+                    </div> 
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::avatar class="w-32 rounded-full" online content="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::avatar&#62;</code>
+        <code>&#60;x-admin::avatar class="w-32 rounded-full" online content="Jhon Doe"&#62;</code>
+            BUTTON
+        <code>&#60;/x-admin::avatar&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+{{/layouts/app }}
