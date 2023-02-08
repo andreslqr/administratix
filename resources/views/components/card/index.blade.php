@@ -19,7 +19,7 @@
     <div class="card-body">
         {{ $content ?? $slot }}
         @isset($actions)
-            <div {{ $actions->atributes->merge(['class' => 'card-actions']) }}>
+            <div {{ $actions->attributes->merge(['class' => 'card-actions']) }}>
                 {{ $actions }}
             </div>
         @endisset

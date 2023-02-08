@@ -1,0 +1,561 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Card
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a
+            href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a>
+        Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/card"
+            target="_blank" class="link text-[#661ae6]">Daisy Cards</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        content
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use instead of default laravel slot components
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        top-image
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        Use as slot for the image top
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        bottom-image
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        Use as slot for the image bottom
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        actions
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        Use as slot for the actions as buttons
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        compact
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Reduce the padding of the card
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        image-on-side
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Move the <code>top-image</code> to the left or the <code>bottom-image</code> to the right
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        glass
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Glass effect
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        full-image
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show the image as background
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Card
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::card class="w-96 bg-base-100 shadow-xl"&#62;</code>
+            <code>&#60;h2 class="card-title"&#62;Shoes!&#60;/h2&#62;</code>
+            <code>&#60;p&#62;If a dog chews shoes whose shoes does he choose?&#60;/p&#62;</code>
+        <code>&#60;/x-admin::card&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Card with actions
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::card class="w-96 bg-base-100 shadow-xl"&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h2 class="card-title"&#62;Shoes!&#60;/h2&#62;</code>
+                <code>&#60;p&#62;If a dog chews shoes whose shoes does he choose?&#60;/p&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="actions" class="justify-end"&#62;</code>
+                <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+                    buy now
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::card&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Card with image
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                    </div> 
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::card class="w-96 bg-base-100 shadow-xl"&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h2 class="card-title"&#62;Shoes!&#60;/h2&#62;</code>
+                <code>&#60;p&#62;If a dog chews shoes whose shoes does he choose?&#60;/p&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="actions" class="justify-end"&#62;</code>
+                <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+                    buy now
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="topImage"&#62;</code>
+                <code>&#60;img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::card&#62;</code>
+
+        <code>&#60;x-admin::card class="w-96 bg-base-100 shadow-xl"&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h2 class="card-title"&#62;Shoes!&#60;/h2&#62;</code>
+                <code>&#60;p&#62;If a dog chews shoes whose shoes does he choose?&#60;/p&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="actions" class="justify-end"&#62;</code>
+                <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+                    buy now
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="bottomImage"&#62;</code>
+                <code>&#60;img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::card&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Card compact
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="card card-compact w-96 bg-base-100 shadow-xl">
+                        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::card class="w-96 bg-base-100 shadow-xl" compact&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h2 class="card-title"&#62;Shoes!&#60;/h2&#62;</code>
+                <code>&#60;p&#62;If a dog chews shoes whose shoes does he choose?&#60;/p&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="actions" class="justify-end"&#62;</code>
+                <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+                    buy now
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="topImage"&#62;</code>
+                <code>&#60;img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::card&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Card with image on side
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    
+                    <div class="card card-side bg-base-100 shadow-xl">
+                        <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="card card-side bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                        <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /></figure>
+                    </div> 
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::card image-on-side class="bg-base-100 shadow-xl"&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h2 class="card-title"&#62;Shoes!&#60;/h2&#62;</code>
+                <code>&#60;p&#62;If a dog chews shoes whose shoes does he choose?&#60;/p&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="actions" class="justify-end"&#62;</code>
+                <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+                    buy now
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="topImage"&#62;</code>
+                <code>&#60;img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::card&#62;</code>
+
+        <code>&#60;x-admin::card image-on-side class="bg-base-100 shadow-xl"&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h2 class="card-title"&#62;Shoes!&#60;/h2&#62;</code>
+                <code>&#60;p&#62;If a dog chews shoes whose shoes does he choose?&#60;/p&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="actions" class="justify-end"&#62;</code>
+                <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+                    buy now
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="bottomImage"&#62;</code>
+                <code>&#60;img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::card&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Card glass
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined"
+                    style="background-image: url(https://daisyui.com/images/stock/photo-1481026469463-66327c86e544.jpg)">
+                    <div class="card glass w-96">
+                        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::card class="w-96" glass&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h2 class="card-title"&#62;Shoes!&#60;/h2&#62;</code>
+                <code>&#60;p&#62;If a dog chews shoes whose shoes does he choose?&#60;/p&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="actions" class="justify-end"&#62;</code>
+                <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+                    buy now
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="topImage"&#62;</code>
+                <code>&#60;img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::card&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Card with bakground image
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="card card-compact w-96 bg-base-100 shadow-xl image-full">
+                        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::card class="w-96 bg-base-100 shadow-xl" full-image&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;h2 class="card-title"&#62;Shoes!&#60;/h2&#62;</code>
+                <code>&#60;p&#62;If a dog chews shoes whose shoes does he choose?&#60;/p&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="actions" class="justify-end"&#62;</code>
+                <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+                    buy now
+                <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="topImage"&#62;</code>
+                <code>&#60;img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::card&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/layouts/app }}
