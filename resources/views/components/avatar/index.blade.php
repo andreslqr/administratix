@@ -1,6 +1,5 @@
 @props([
     'content',
-    'rounded' => false,
     'online' => false
 ])
 
@@ -14,7 +13,7 @@
 @endphp
 
 <div class="avatar {{ $isImage ? '' : 'placeholder' }} {{ $online ? 'online' : '' }}">
-  <div {{ $attributes }}>
+  <div {{ $attributes->merge(['class' => $isImage ? '' : 'bg-neutral-focus text-neutral-content text-3xl']) }}>
     @if($isImage)
         <img src="{{ $content }}" {{ $attributes->whereStartsWith('alt') }} />
     @else
