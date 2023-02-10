@@ -1,0 +1,408 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Carousel
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a
+            href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a>
+        Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/carousel"
+            target="_blank" class="link text-[#661ae6]">Daisy Carousels</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        items
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use instead of default laravel slot components
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        center
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Snap items to center
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        end
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Snap items to end
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        vertical
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Display as vertical
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Carousel
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="carousel rounded-box w-64">
+                        <div class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" alt="Burger" />
+                        </div>
+                        </div>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::carousel class="w-64"&#62;</code>
+            @foreach($images as $image)
+                <code>&#60;x-admin::carousel.item&#62;</code>
+                    <code>&#60;img src="\{{ $image }}" /&#62;</code>
+                <code>&#60;/x-admin::carousel.item&#62;</code>
+            @endforeach
+        <code>&#60;/x-admin::carousel&#62;</code>
+        
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Carousel items center
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="carousel carousel-center rounded-box max-w-md">
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" alt="Burger" />
+                        </div>
+                        </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::carousel class="max-w-md" center&#62;</code>
+            @foreach($images as $image)
+                <code>&#60;x-admin::carousel.item&#62;</code>
+                    <code>&#60;img src="\{{ $image }}" /&#62;</code>
+                <code>&#60;/x-admin::carousel.item&#62;</code>
+            @endforeach
+        <code>&#60;/x-admin::carousel&#62;</code>
+        
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Carousel items end
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="carousel carousel-end rounded-box max-w-md">
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" alt="Burger" />
+                        </div>
+                        </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::carousel class="max-w-md" end&#62;</code>
+            @foreach($images as $image)
+                <code>&#60;x-admin::carousel.item&#62;</code>
+                    <code>&#60;img src="\{{ $image }}" /&#62;</code>
+                <code>&#60;/x-admin::carousel.item&#62;</code>
+            @endforeach
+        <code>&#60;/x-admin::carousel&#62;</code>
+        
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Carousel vertical
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="carousel carousel-vertical rounded-box h-96">
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" alt="Burger" />
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" alt="Burger" />
+                        </div>
+                        </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::carousel class="h-96" vertical&#62;</code>
+            @foreach($images as $image)
+                <code>&#60;x-admin::carousel.item&#62;</code>
+                    <code>&#60;img src="\{{ $image }}" /&#62;</code>
+                <code>&#60;/x-admin::carousel.item&#62;</code>
+            @endforeach
+        <code>&#60;/x-admin::carousel&#62;</code>
+        
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Controlling from Livewire
+        </h2>
+
+        <p class="mt-6">
+            You can control any carousel of your form from livewire if you add the <code>\Administratix\Administratix\Support\Livewire\Components\WithCarousels</code> trait in your component, then you can access to the method
+
+        </p>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'livewire' ? 'tab-active' : ''" x-on:click="active = 'livewire'">Livewire</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 flex-col undefined">
+                    <div class="carousel rounded-box w-64">
+                        <div id="item1" class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt="Burger" />
+                        </div> 
+                        <div id="item2" class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt="Burger" />
+                        </div> 
+                        <div id="item3" class="carousel-item w-full">
+                            <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" alt="Burger" />
+                        </div>
+                    </div>
+
+                    <a href="#item2" class="btn">
+                        CLICK
+                    </a> 
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::carousel class="w-64" wire:carousel="mainCarousel"&#62;</code>
+            @foreach($images as $name => $image)
+                <code>&#60;x-admin::carousel.item&#62;</code>
+                    <code>&#60;img src="\{{ $image }}" /&#62;</code>
+                <code>&#60;/x-admin::carousel.item&#62;</code>
+            @endforeach
+        <code>&#60;/x-admin::carousel&#62;</code>
+
+        <code>&#60;x-admin::button wire:click="moveCarousel"&#62;</code>
+            CLICK
+        <code>&#60;/x-admin::button&#62;</code>
+        
+    </pre>
+                </div>
+                <div x-show="active == 'livewire'">
+    <pre class="language-php">
+        <code>&#60;?php</code>
+
+        <code>class MyLivewireComponent extends Component</code>
+        <code>{</code>
+            <code>use \Administratix\Administratix\Support\Livewire\Components\WithDropdowns;</code>
+
+            <code>public function moveCarousel()</code>
+            <code>{</code>
+                <code> $this->goToCarouselItem('mainCarousel', 1); </code>
+            <code>}</code>
+        <code>}</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/layouts/app }}

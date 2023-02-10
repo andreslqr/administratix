@@ -1,5 +1,8 @@
 @props([
-    'rounded' => false
+    'items',
+    'center' => false,
+    'end' => false,
+    'vertical' => false
 ])
 
 @php
@@ -20,6 +23,6 @@
 @endphp
 
 
-<div {{ $attributes->merge(['class' => 'carousel'])->class(['rounded-box' => $rounded]) }} @if($name) x-data x-init="() => $wire.on('{{ $eventName }}-{{ $name }}', (index) => $el.children.item(index)?.scrollIntoView())" @endif>
+<div {{ $attributes->merge(['class' => 'carousel'])->class(['carousel-center' => $center, 'carousel-end' => $end, 'carousel-vertical' => $vertical]) }} @if($name) x-data x-init="() => $wire.on('{{ $eventName }}-{{ $name }}', (index) => $el.children.item(index)?.scrollIntoView())" @endif>
     {{ $items ?? $slot }}
 </div>
