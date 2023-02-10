@@ -1,0 +1,312 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Collapse
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a
+            href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a>
+        Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/collapse"
+            target="_blank" class="link text-[#661ae6]">Daisy Collapse</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        trigger
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        Use as slot for the trigger button
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        content
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use as slot for the hidden content
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        with-arrow 
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use an arrow as indicator
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        with-plus 
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use a plus as indicator
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Collapse
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div tabindex="0" class="collapse"> 
+                        <div class="collapse-title text-xl font-medium">
+                            Focus me to see content
+                        </div>
+                        <div class="collapse-content"> 
+                            <p>i'm hidding</p>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::collapse&#62;</code>
+            <code>&#60;x-slot name="trigger"&#62;</code>
+                Focus me to see content 
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                I'm hidding
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::collapse&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Collapse with arrow
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div tabindex="0" class="collapse collapse-arrow"> 
+                        <div class="collapse-title text-xl font-medium">
+                            Focus me to see content
+                        </div>
+                        <div class="collapse-content"> 
+                            <p>i'm hidding</p>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::collapse&#62;</code>
+            <code>&#60;x-slot name="trigger"&#62;</code>
+                Focus me to see content 
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                I'm hidding
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::collapse&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Collapse with plus/minus
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div tabindex="0" class="collapse collapse-plus"> 
+                        <div class="collapse-title text-xl font-medium">
+                            Focus me to see content
+                        </div>
+                        <div class="collapse-content"> 
+                            <p>i'm hidding</p>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::collapse&#62;</code>
+            <code>&#60;x-slot name="trigger"&#62;</code>
+                Focus me to see content 
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                I'm hidding
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::collapse&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Controlling from Livewire
+        </h2>
+
+        <p class="mt-6">
+            You can control any collapse of your form from livewire if you add the <code>\Administratix\Administratix\Support\Livewire\Components\WithCollapses</code> trait in your component, then you can access to any method
+
+        </p>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'livewire' ? 'tab-active' : ''" x-on:click="active = 'livewire'">Livewire</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto h-64">
+                <div x-show="active == 'preview'" class="h-64 preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div tabindex="0" class="collapse"> 
+                        <div class="collapse-title text-xl font-medium">
+                            Focus me to see content
+                        </div>
+                        <div class="collapse-content"> 
+                            <p>i'm hidding</p>
+                        </div>
+                    </div> 
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::collapse wire:collapse="menu"&#62;</code>
+            <code>&#60;x-slot name="trigger"&#62;</code>
+                Focus me to see content 
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                I'm hidding
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::collapse&#62;</code>
+    </pre>
+                </div>
+                <div x-show="active == 'livewire'">
+    <pre class="language-php">
+        <code>&#60;?php</code>
+
+        <code>class MyLivewireComponent extends Component</code>
+        <code>{</code>
+            <code>use \Administratix\Administratix\Support\Livewire\Components\WithCollapses;</code>
+            
+            <code>/**</code>
+            <code>* The initial state of the collapse elements</code>
+            <code>* </code>
+            <code>* @var array</code>
+            <code>*/</code>
+            <code>public $collapses = [</code>
+                <code>'menu' => false</code>
+            <code>];</code>
+
+            <code>public function editData()</code>
+            <code>{</code>
+                <code>$this->toggleCollapse('menu'); // Toggle the collapse open / close</code>
+
+                <code>$this->showCollapse('menu'); // Show the collapse</code>
+
+                <code>$this->hideCollapse('menu'); // Hide the collapse</code>
+
+                <code>$this->getCollapse('menu'); // Return true or false depending if the collapse is open or not</code>
+
+                <code>if($this->isCollapseOpen('menu')) // Check if the menu is open</code>
+                    <code>$this->doSomething();</code>
+
+                <code>if($this->isCollapseClosed('menu')) // Check if the menu is closed</code>
+                    <code>$this->doSomenthing();</code>
+            }
+        <code>}</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/layouts/app }}
