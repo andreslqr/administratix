@@ -1,0 +1,96 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Kbd
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a
+            href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a>
+        Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/countdown"
+            target="_blank" class="link text-[#661ae6]">Daisy Kbd</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        content
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use instead of default laravel slot components
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Kbd
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <kbd class="kbd">ctrl</kbd>
+                    +
+                    <kbd class="kbd">shift</kbd>
+                    +
+                    <kbd class="kbd">del</kbd>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::kbd content="ctrl" /&#62;</code>
+        +
+        <code>&#60;x-admin::kbd content="shift" /&#62;</code>
+        +
+        <code>&#60;x-admin::kbd content="del" /&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+{{/layouts/app }}
