@@ -2,13 +2,13 @@
 
 <div class="container pt-3">
     <h1 class="text-5xl font-bold">
-        Kbd
+        Stat
     </h1>
     <p class="mt-6">
         This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a
             href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a>
-        Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/countdown"
-            target="_blank" class="link text-[#661ae6]">Daisy Kbd</a>
+        Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/stat"
+            target="_blank" class="link text-[#661ae6]">Daisy Stats</a>
     </p>
 
     <div class="overflow-x-auto mt-6">
@@ -35,7 +35,7 @@
             <tbody>
                 <tr>
                     <td>
-                        content
+                        title
                     </td>
                     <td>
                         String
@@ -43,7 +43,121 @@
                     <td>
                     </td>
                     <td>
-                        Use instead of default laravel slot components
+                        Slot for the title of the stat
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        title
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Slot for the title of the stat
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        value
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Slot for the stat value
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        description
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Slot for small description of the stat
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        figure
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Slot for an image/video figure
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        actions
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Slot for actions of the stat as buttons
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        no-auto-wrap 
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Property of the wrapper to tell sthe child elements how to self display
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        vertical
+                    </td>
+                    <td>
+                        Boolean  
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Property of the wrapper show stats in vertical mode
                     </td>
                     <td>
                         null
@@ -57,7 +171,7 @@
     <div>
 
         <h2 class="text-xl font-bold mt-6">
-            Kbd
+            Stat
         </h2>
 
         <div x-data="{ active: 'preview' }" class="mt-6">
@@ -71,26 +185,292 @@
             <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
                 <div x-show="active == 'preview'"
                     class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
-                    <kbd class="kbd">ctrl</kbd>
-                    +
-                    <kbd class="kbd">shift</kbd>
-                    +
-                    <kbd class="kbd">del</kbd>
+                    <div class="stats shadow">
+
+                        <div class="stat">
+                            <div class="stat-title">Total Page Views</div>
+                            <div class="stat-value">89,400</div>
+                            <div class="stat-desc">21% more than last month</div>
+                        </div>
+
+                    </div>
                 </div>
                 <div x-show="active == 'code'">
-    <pre class="language-html">
-        <code>&#60;x-admin::kbd content="ctrl" /&#62;</code>
-        +
-        <code>&#60;x-admin::kbd content="shift" /&#62;</code>
-        +
-        <code>&#60;x-admin::kbd content="del" /&#62;</code>
+                    <pre class="language-html">
+        <code>&#60;x-admin::stat&#62;</code>
+            <code>&#60;x-slot name="title"&#62;</code>
+                Total Page Views
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="value"&#62;</code>
+                89,400
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="description"&#62;</code>
+                21% more than last month
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::stat&#62;</code>
     </pre>
                 </div>
             </div>
         </div>
     </div>
 
-    
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Stat with image or icon
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="stats shadow">
+
+                        <div class="stat">
+                            <div class="stat-figure text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    class="inline-block w-8 h-8 stroke-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-title">Page Views</div>
+                            <div class="stat-value text-secondary">2.6M</div>
+                            <div class="stat-desc">21% more than last month</div>
+                        </div>
+                    </div>
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-figure text-secondary">
+                                <div class="avatar online">
+                                    <div class="w-16 rounded-full">
+                                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-title">Tasks done</div>
+                            <div class="stat-value">86%</div>
+                            <div class="stat-desc text-secondary">31 tasks remaining</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::stat&#62;</code>
+            <code>&#60;x-slot name="title"&#62;</code>
+                Page Views
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="value" class="text-secondary"&#62;</code>
+                2.6M
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="description"&#62;</code>
+                21% more than last month
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="figure" class="text-secondary"&#62;</code>
+                <code>&#60;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"&#62;</code>
+                    <code>&#60;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"&#62;&#60;/path&#62;</code>
+                <code>&#60;/svg&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::stat&#62;</code>
+        <code>&#60;x-admin::stat&#62;</code>
+            <code>&#60;x-slot name="title"&#62;</code>
+                Task Done
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="value" class="text-secondary"&#62;</code>
+                86%
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="description" class="text-secondary"&#62;</code>
+                31 tasks remaining
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="figure" class="text-secondary"&#62;</code>
+                <code>&#60;x-admin::avatar class="w-32 rounded-full" online content="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::stat&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Stats wrapper
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="stats shadow">
+
+                        <div class="stat">
+                            <div class="stat-figure text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    class="inline-block w-8 h-8 stroke-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-title">Page Views</div>
+                            <div class="stat-value text-secondary">2.6M</div>
+                            <div class="stat-desc">21% more than last month</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-figure text-secondary">
+                                <div class="avatar online">
+                                    <div class="w-16 rounded-full">
+                                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-title">Tasks done</div>
+                            <div class="stat-value">86%</div>
+                            <div class="stat-desc text-secondary">31 tasks remaining</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::stat.wrapper no-auto-wrap&#62;</code>
+            <code>&#60;x-admin::stat&#62;</code>
+                <code>&#60;x-slot name="title"&#62;</code>
+                    Page Views
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="value" class="text-secondary"&#62;</code>
+                    2.6M
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="description"&#62;</code>
+                    21% more than last month
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="figure" class="text-secondary"&#62;</code>
+                    <code>&#60;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"&#62;</code>
+                        <code>&#60;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"&#62;&#60;/path&#62;</code>
+                    <code>&#60;/svg&#62;</code>
+                <code>&#60;/x-slot&#62;</code>
+            <code>&#60;/x-admin::stat&#62;</code>
+            <code>&#60;x-admin::stat&#62;</code>
+                <code>&#60;x-slot name="title"&#62;</code>
+                    Task Done
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="value" class="text-secondary"&#62;</code>
+                    86%
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="description" class="text-secondary"&#62;</code>
+                    31 tasks remaining
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="figure" class="text-secondary"&#62;</code>
+                    <code>&#60;x-admin::avatar class="w-32 rounded-full" online content="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /&#62;</code>
+                <code>&#60;/x-slot&#62;</code>
+            <code>&#60;/x-admin::stat&#62;</code>
+        <code>&#60;/x-admin::stat.wrapper&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Stats wrapper vertical
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="stats stats-vertical shadow">
+
+                        <div class="stat">
+                            <div class="stat-figure text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    class="inline-block w-8 h-8 stroke-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-title">Page Views</div>
+                            <div class="stat-value text-secondary">2.6M</div>
+                            <div class="stat-desc">21% more than last month</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-figure text-secondary">
+                                <div class="avatar online">
+                                    <div class="w-16 rounded-full">
+                                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-title">Tasks done</div>
+                            <div class="stat-value">86%</div>
+                            <div class="stat-desc text-secondary">31 tasks remaining</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::stat.wrapper no-auto-wrap vertical&#62;</code>
+            <code>&#60;x-admin::stat&#62;</code>
+                <code>&#60;x-slot name="title"&#62;</code>
+                    Page Views
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="value" class="text-secondary"&#62;</code>
+                    2.6M
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="description"&#62;</code>
+                    21% more than last month
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="figure" class="text-secondary"&#62;</code>
+                    <code>&#60;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"&#62;</code>
+                        <code>&#60;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"&#62;&#60;/path&#62;</code>
+                    <code>&#60;/svg&#62;</code>
+                <code>&#60;/x-slot&#62;</code>
+            <code>&#60;/x-admin::stat&#62;</code>
+            <code>&#60;x-admin::stat&#62;</code>
+                <code>&#60;x-slot name="title"&#62;</code>
+                    Task Done
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="value" class="text-secondary"&#62;</code>
+                    86%
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="description" class="text-secondary"&#62;</code>
+                    31 tasks remaining
+                <code>&#60;/x-slot&#62;</code>
+                <code>&#60;x-slot name="figure" class="text-secondary"&#62;</code>
+                    <code>&#60;x-admin::avatar class="w-32 rounded-full" online content="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /&#62;</code>
+                <code>&#60;/x-slot&#62;</code>
+            <code>&#60;/x-admin::stat&#62;</code>
+        <code>&#60;/x-admin::stat.wrapper&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {{/layouts/app }}
