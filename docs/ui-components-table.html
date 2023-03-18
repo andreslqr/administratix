@@ -248,7 +248,7 @@
     <div>
 
         <h2 class="text-xl font-bold mt-6">
-            Avatar online
+            Striped Table
         </h2>
 
         <div x-data="{ active: 'preview' }" class="mt-6">
@@ -262,21 +262,167 @@
             <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
                 <div x-show="active == 'preview'"
                     class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
-                    <div class="avatar online">
-                        <div class="w-24 rounded-full">
-                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                        </div>
-                    </div>
-                    <div class="avatar placeholder online">
-                        <div class="bg-neutral-focus text-neutral-content rounded-full w-24">
-                            <span class="text-3xl">JD</span>
-                        </div>
+                    <div class="overflow-x-auto">
+                        <table class="table table-zebra w-full">
+                            <!-- head -->
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Job</th>
+                                <th>Favorite Color</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- row 1 -->
+                            <tr>
+                                <th>1</th>
+                                <td>Cy Ganderton</td>
+                                <td>Quality Control Specialist</td>
+                                <td>Blue</td>
+                            </tr>
+                            <!-- row 2 -->
+                            <tr>
+                                <th>2</th>
+                                <td>Hart Hagerty</td>
+                                <td>Desktop Support Technician</td>
+                                <td>Purple</td>
+                            </tr>
+                            <!-- row 3 -->
+                            <tr>
+                                <th>3</th>
+                                <td>Brice Swyre</td>
+                                <td>Tax Accountant</td>
+                                <td>Red</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div> 
                 </div>
                 <div x-show="active == 'code'">
                     <pre class="language-html">
-        <code>&#60;x-admin::avatar class="w-32 rounded-full" online content="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /&#62;</code>
-        <code>&#60;x-admin::avatar class="w-32 rounded-full" online content="Jhon Doe" /&#62;</code>
+    <code>&#60;x-admin::table striped class="w-full"&#62;</code>
+        <code>&#60;x-slot name="header"&#62;</code>
+            <code>&#60;x-admin::table.row&#62;</code>
+                <code>&#60;x-admin::table.heading&#62;</code>
+                    name
+                <code>&#60;/x-admin::table.heading&#62;</code>
+                <code>&#60;x-admin::table.heading&#62;</code>
+                    job 
+                <code>&#60;/x-admin::table.heading&#62;</code>
+                <code>&#60;x-admin::table.heading&#62;</code>
+                    favorite color 
+                <code>&#60;/x-admin::table.heading&#62;</code>
+            <code>&#60;/x-admin::table.row&#62;</code>
+        <code>&#60;/x-slot&#62;</code>
+        <code>&#60;x-slot name="body"&#62;</code>
+            @foreach($users as $user)
+                <code>&#60;x-admin::table.row wire:key="users-\{{ $user->getKey() }}"&#62;</code>
+                    <code>&#60;x-admin::table.cell&#62;</code>
+                        \{{ $user->name }}
+                    <code>&#60;/x-admin::table.cell&#62;</code>
+                    <code>&#60;x-admin::table.cell&#62;</code>
+                        \{{ $user->job?->name }}
+                    <code>&#60;/x-admin::table.cell&#62;</code>
+                    <code>&#60;x-admin::table.cell&#62;</code>
+                        \{{ $user->color }}
+                    <code>&#60;/x-admin::table.cell&#62;</code>
+                <code>&#60;/x-admin::table.row&#62;</code>
+            @endforeach
+        <code>&#60;/x-slot&#62;</code>
+    <code>&#60;/x-admin::table&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Compact Table
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="overflow-x-auto">
+                        <table class="table  table-compact w-full">
+                            <!-- head -->
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Job</th>
+                                <th>Favorite Color</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- row 1 -->
+                            <tr>
+                                <th>1</th>
+                                <td>Cy Ganderton</td>
+                                <td>Quality Control Specialist</td>
+                                <td>Blue</td>
+                            </tr>
+                            <!-- row 2 -->
+                            <tr>
+                                <th>2</th>
+                                <td>Hart Hagerty</td>
+                                <td>Desktop Support Technician</td>
+                                <td>Purple</td>
+                            </tr>
+                            <!-- row 3 -->
+                            <tr>
+                                <th>3</th>
+                                <td>Brice Swyre</td>
+                                <td>Tax Accountant</td>
+                                <td>Red</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+    <code>&#60;x-admin::table compact class="w-full"&#62;</code>
+        <code>&#60;x-slot name="header"&#62;</code>
+            <code>&#60;x-admin::table.row&#62;</code>
+                <code>&#60;x-admin::table.heading&#62;</code>
+                    name
+                <code>&#60;/x-admin::table.heading&#62;</code>
+                <code>&#60;x-admin::table.heading&#62;</code>
+                    job 
+                <code>&#60;/x-admin::table.heading&#62;</code>
+                <code>&#60;x-admin::table.heading&#62;</code>
+                    favorite color 
+                <code>&#60;/x-admin::table.heading&#62;</code>
+            <code>&#60;/x-admin::table.row&#62;</code>
+        <code>&#60;/x-slot&#62;</code>
+        <code>&#60;x-slot name="body"&#62;</code>
+            @foreach($users as $user)
+                <code>&#60;x-admin::table.row wire:key="users-\{{ $user->getKey() }}"&#62;</code>
+                    <code>&#60;x-admin::table.cell&#62;</code>
+                        \{{ $user->name }}
+                    <code>&#60;/x-admin::table.cell&#62;</code>
+                    <code>&#60;x-admin::table.cell&#62;</code>
+                        \{{ $user->job?->name }}
+                    <code>&#60;/x-admin::table.cell&#62;</code>
+                    <code>&#60;x-admin::table.cell&#62;</code>
+                        \{{ $user->color }}
+                    <code>&#60;/x-admin::table.cell&#62;</code>
+                <code>&#60;/x-admin::table.row&#62;</code>
+            @endforeach
+        <code>&#60;/x-slot&#62;</code>
+    <code>&#60;/x-admin::table&#62;</code>
     </pre>
                 </div>
             </div>
