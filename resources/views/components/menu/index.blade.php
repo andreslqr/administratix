@@ -1,5 +1,4 @@
 @props([
-    'disabled' => false,
     'compact' => false,
     'horizontal' => false,
     'rounded' => false

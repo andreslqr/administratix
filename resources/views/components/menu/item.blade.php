@@ -1,4 +1,5 @@
 @props([
+    'content',
     'active' => false,
     'asTitle' => false,
     'bordered' => false,
@@ -26,7 +27,7 @@
             ])->filter(fn ($value, $key) => !in_array($key, $anchorAttributes)) }}>
 
     <a {{ $attributes->filter(fn ($value, $key) => in_array($key, $anchorAttributes))  }} class="{{ $anchorClass }} @if($active) active @endif">
-        {{ $slot }}
+        {{ $content ?? $slot }}
     </a>
 
 </li>

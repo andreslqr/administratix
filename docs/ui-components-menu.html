@@ -1,0 +1,401 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Link
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a
+            href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a>
+        Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/menu"
+            target="_blank" class="link text-[#661ae6]">Daisy Menus</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        compact
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show small menu
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        horizontal
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show menu in horizontal
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        rounded
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Round the corners of the menu
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        content
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        Use instead of default slot
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        active
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show an item as active
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        as-title
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show the item as title limiter
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        bordered
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show the item with rounded corners
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        bordered-on-hover
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Round corners on hover
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        disabled
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show item as inactive
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        anchor-class
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Extra classes for anchor element
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Menu
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <ul class="menu bg-base-100 w-56">
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 2</a></li>
+                            <li><a>Item 3</a></li>
+                        </ul>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::menu&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 1" /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 2" /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 3" /&#62;</code>
+        <code>&#60;/x-admin::menu&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Menu with active item
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <ul class="menu bg-base-100 w-56">
+                            <li><a>Item 1</a></li>
+                            <li><a class="active">Item 2</a></li>
+                            <li><a>Item 3</a></li>
+                        </ul>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::menu&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 1" /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 2" active /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 3" /&#62;</code>
+        <code>&#60;/x-admin::menu&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Menu with titles
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <ul class="menu bg-base-100 w-56 p-2 rounded-box">
+                            <li class="menu-title">
+                                <span>Category</span>
+                            </li>
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 2</a></li>
+                            <li class="menu-title">
+                                <span>Category</span>
+                            </li>
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 2</a></li>
+                        </ul>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::menu&#62;</code>
+            <code>&#60;x-admin::menu.item content="Category" as-title /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 1" /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 2" /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Category" as-title /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 1" /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 2" /&#62;</code>
+        <code>&#60;/x-admin::menu&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Item with bordered
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <ul class="menu bg-base-100 w-56 rounded-box">
+                            <li><a>Item 1</a></li>
+                            <li class="bordered"><a>I have border</a></li>
+                            <li><a>Item 3</a></li>
+                        </ul>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::menu&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 1" /&#62;</code>
+            <code>&#60;x-admin::menu.item content="I have border" bordered /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 3" /&#62;</code>
+        <code>&#60;/x-admin::menu&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Item disabled
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <ul class="menu bg-base-100 w-56">
+                            <li><a>Item 1</a></li>
+                            <li class="disabled"><a>Item 2</a></li>
+                            <li><a>Item 3</a></li>
+                        </ul>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::menu&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 1" /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 2" disabled /&#62;</code>
+            <code>&#60;x-admin::menu.item content="Item 3" /&#62;</code>
+        <code>&#60;/x-admin::menu&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/layouts/app }}
