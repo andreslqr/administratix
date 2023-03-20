@@ -1,7 +1,7 @@
 @props([
     'id',
-    'active' => false.
-    'dataContent',
+    'active' => false,
+    'dataContent' => false,
     'content'
 ])
 

@@ -28,20 +28,22 @@
             
         @endif
     </div>
-    <div>
-        @foreach(\Illuminate\Support\Arr::get($this->steppers, $name, []) as $index => $item)
-            @php 
-                $slotName =  \Illuminate\Support\Str::of($item)->camel(); 
-                if(!isset($$slotName))
-                    throw new Exception("The slot '{$slotName}' was not defined in your stepper '{$name}'");
-                    
-            @endphp
-            
-            <div x-show="step == '{{ $item }}'" >
-                {{ $$slotName }}
-            </div>
-        @endforeach
-    </div>
+    @if($name)
+        <div>
+            @foreach(\Illuminate\Support\Arr::get($this->steppers, $name, []) as $index => $item)
+                @php 
+                    $slotName =  \Illuminate\Support\Str::of($item)->camel(); 
+                    if(!isset($$slotName))
+                        throw new Exception("The slot '{$slotName}' was not defined in your stepper '{$name}'");
+                        
+                @endphp
+                
+                <div x-show="step == '{{ $item }}'" >
+                    {{ $$slotName }}
+                </div>
+            @endforeach
+        </div>
+    @endif
 </div>
 
 @if($name)

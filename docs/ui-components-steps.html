@@ -1,0 +1,343 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        Steps
+    </h1>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a
+            href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a>
+        Implementation, to see more about the css classes please see <a href="https://daisyui.com/components/steps"
+            target="_blank" class="link text-[#661ae6]">Daisy Steps</a>
+    </p>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-compact table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>
+                        Attribute
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Values
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Default
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        icon
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use as slot for icon
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        content
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use as slot for the content of your alert
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        actions
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Use as slot for the action section of the alert, like buttons
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Steps
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <ul class="steps">
+                        <li class="step step-primary">Register</li>
+                        <li class="step step-primary">Choose plan</li>
+                        <li class="step">Purchase</li>
+                        <li class="step">Receive Product</li>
+                    </ul>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::steps>
+            <code>&#60;x-admin::steps.item content="Register" active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Choose plan"  active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Purchase" /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Receive Product" /&#62;</code>
+        <code>&#60;/x-admin::steps&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Custom colors
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <ul class="steps">
+                        <li class="step step-error">Register</li>
+                        <li class="step step-error">Choose plan</li>
+                        <li class="step step-success">Purchase</li>
+                        <li class="step step-success">Receive Product</li>
+                    </ul>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::steps class-for-active="step-error">
+            <code>&#60;x-admin::steps.item content="Register" active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Choose plan" active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Purchase" class-for-active="step-success" active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Receive Product" class-for-active="step-success" active /&#62;</code>
+        <code>&#60;/x-admin::steps&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Data content
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <ul class="steps">
+                        <li data-content="?" class="step step-neutral">Step 1</li>
+                        <li data-content="!" class="step step-neutral">Step 2</li>
+                        <li data-content="✓" class="step step-neutral">Step 3</li>
+                        <li data-content="✕" class="step step-neutral">Step 4</li>
+                        <li data-content="★" class="step step-neutral">Step 5</li>
+                        <li data-content="●" class="step step-neutral">Step 6</li>
+                    </ul>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::steps class-for-active="step-neutral">
+            <code>&#60;x-admin::steps.item content="Step 1" data-content="?" active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Step 2" data-content="!" active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Step 3" data-content="✓" active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Step 4" data-content="✕" active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Step 5" data-content="★" active /&#62;</code>
+            <code>&#60;x-admin::steps.item content="Step 6" data-content="●" active /&#62;</code>
+        <code>&#60;/x-admin::steps&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Controlling from Livewire
+        </h2>
+
+        <p class="mt-6">
+            You can control any alert of your form from livewire if you add the
+            <code>\Administratix\Administratix\Support\Livewire\Components\WithSteppers</code> trait in your component,
+            then you can access to any method, the <code class="text-warning">$steppers</code> property defines the
+            steps from a stepper, and the property <code class="text-warning">$step</code> defines the current step
+
+        </p>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'livewire' ? 'tab-active' : ''"
+                    x-on:click="active = 'livewire'">Livewire</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto h-64">
+                <div x-data="{ show: false }" x-show="active == 'preview'"
+                    class="h-64 preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    
+                    <div class="flex" x-data="{ items: ['register', 'login', 'fill form', 'select payment method', 'pay'], step: 'register', isActive: false }">
+
+                        <button class="btn btn-info" x-on:click="show = !show">
+                            Prev step 
+                        </button>
+                        <div>
+    
+                            <div class="steps">
+                                <template x-for="(item, index) in items">
+                                    <li class="step step-neutral" x-bind:data-content="index"  x-text="item" x-bind:class="{ 'step-neutral': true }">
+                                    </li>
+                                </template>
+                            </div>
+                            <div>
+    
+                                <div x-show="step == 'register'" style="display: none;">
+                                    Register here
+                                </div>
+    
+                                <div x-show="step == 'login'">
+                                    Login here
+                                </div>
+    
+                                <div x-show="step == 'fill form'" style="display: none;">
+                                    Fill Form here
+                                </div>
+    
+                                <div x-show="step == 'select payment method'" style="display: none;">
+                                    Select payment method method here
+                                </div>
+    
+                                <div x-show="step == 'pay'" style="display: none;">
+                                    Pay here
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-info" x-on:click="show = !show">
+                            Next step 
+                        </button>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::steps class-for-active="step-neutral" wire:stepper="payment"&#62;</code>
+            <code>&#60;x-slot name="register"&#62;</code>
+                Register here
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="login"&#62;</code>
+                Login here
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="fillForm"&#62;</code>
+                Fill Form here
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="selectPaymentMethod"&#62;</code>
+                Select payment method method here
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="pay"&#62;</code>
+                Pay here
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::steps&#62;</code>
+    </pre>
+                </div>
+                <div x-show="active == 'livewire'">
+                    <pre class="language-php">
+        <code>&#60;?php</code>
+
+        <code>class MyLivewireComponent extends Component</code>
+        <code>{</code>
+            <code>use \Administratix\Administratix\Support\Livewire\Components\WithModals;</code>
+            
+            <code>/**</code>
+            <code>* The initial state of the alerts elements</code>
+            <code>* </code>
+            <code>* @var array</code>
+            <code>*/</code>
+            <code>public $alerts = [</code>
+                <code>'infoAlert' => false</code>
+            <code>];</code>
+
+            <code>public function editData()</code>
+            <code>{</code>
+                <code>$this->toggleAlert('infoAlert'); // Toggle the alert open / close</code>
+
+                <code>$this->showAlert('infoAlert'); // Show the alert</code>
+
+                <code>$this->hideAlert('infoAlert'); // Hide the alert</code>
+
+                <code>$this->getAlert('infoAlert'); // Return true or false depending if the alert is open or not</code>
+
+                <code>if($this->isAlertOpen('infoAlert')) // Check if the alert is open</code>
+                    <code>$this->doSomething();</code>
+
+                <code>if($this->isAlertClosed('infoAlert')) // Check if the alert is closed</code>
+                    <code>$this->doSomenthing();</code>
+            }
+        <code>}</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/layouts/app }}
