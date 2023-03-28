@@ -237,20 +237,25 @@
                 <div x-data="{ show: false }" x-show="active == 'preview'"
                     class="h-64 preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
                     
-                    <div class="flex" x-data="{ items: ['register', 'login', 'fill form', 'select payment method', 'pay'], step: 'register', isActive: false }">
+                    <div class="flex" x-data="{ items: ['register', 'login', 'fill form', 'select payment method', 'pay'], step: 'register' }">
 
-                        <button class="btn btn-info" x-on:click="show = !show">
+                        <button class="btn btn-info" x-on:click="() => {
+                            let index = items.findIndex(el => el == step);
+
+                            if(--index in items)
+                                step = items[index];
+                        }">
                             Prev step 
                         </button>
                         <div>
     
                             <div class="steps">
                                 <template x-for="(item, index) in items">
-                                    <li class="step step-neutral" x-bind:data-content="index"  x-text="item" x-bind:class="{ 'step-neutral': true }">
+                                    <li class="step step-neutral" x-bind:data-content="index"  x-bind:key="index" x-text="item" x-bind:class="{ 'step-neutral': ! items.slice(0, index).includes(step) }">
                                     </li>
                                 </template>
                             </div>
-                            <div>
+                            <div class="text-center text-lg">
     
                                 <div x-show="step == 'register'" style="display: none;">
                                     Register here
@@ -273,7 +278,12 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-info" x-on:click="show = !show">
+                        <button class="btn btn-info" x-on:click="() => {
+                            let index = items.findIndex(el => el == step);
+
+                            if(++index in items)
+                                step = items[index];
+                        }">
                             Next step 
                         </button>
                     </div>
@@ -305,31 +315,46 @@
 
         <code>class MyLivewireComponent extends Component</code>
         <code>{</code>
-            <code>use \Administratix\Administratix\Support\Livewire\Components\WithModals;</code>
+            <code>use \Administratix\Administratix\Support\Livewire\Components\WithSteppers;</code>
             
             <code>/**</code>
-            <code>* The initial state of the alerts elements</code>
+            <code>* The stepper elements</code>
             <code>* </code>
             <code>* @var array</code>
             <code>*/</code>
-            <code>public $alerts = [</code>
-                <code>'infoAlert' => false</code>
+            <code>public $steppers = [</code>
+                <code>'payment' => [</code>
+                <code>      'register',</code>
+                <code>      'login',</code>
+                <code>      'fill form',</code>
+                <code>      'select payment method',</code>
+                <code>      'pay'</code>
+                <code>]</code>
+            <code>];</code>
+
+            <code>/**</code>
+            <code>* The stepper instance initial state</code>
+            <code>* </code>
+            <code>* @var array</code>
+            <code>*/</code>
+            <code>public $step = [</code>
+                <code>'payment' => 'register'</code>
             <code>];</code>
 
             <code>public function editData()</code>
             <code>{</code>
-                <code>$this->toggleAlert('infoAlert'); // Toggle the alert open / close</code>
+                <code>$this->getStep('payment'); // get the current active step</code>
 
-                <code>$this->showAlert('infoAlert'); // Show the alert</code>
+                <code>$this->setStep('payment', 'fill form'); // set the step to active</code>
 
-                <code>$this->hideAlert('infoAlert'); // Hide the alert</code>
+                <code>$this->nextStep('payment'); // Show the next step</code>
 
-                <code>$this->getAlert('infoAlert'); // Return true or false depending if the alert is open or not</code>
+                <code>$this->prevStep('payment'); // Show the previous step</code>
 
-                <code>if($this->isAlertOpen('infoAlert')) // Check if the alert is open</code>
+                <code>if($this->isInStep('payment', 'login')) // Check if the alert is open</code>
                     <code>$this->doSomething();</code>
 
-                <code>if($this->isAlertClosed('infoAlert')) // Check if the alert is closed</code>
+                <code>if($this->stepWasPassed('payment', 'login')) // Check if the alert is closed</code>
                     <code>$this->doSomenthing();</code>
             }
         <code>}</code>
