@@ -1,17 +1,19 @@
 @props([
     'tabs',
     'content',
-    'items' => false,
+    'items' => [],
     'bordered' => false,
     'lifted' => false,
     'boxed' => false,
+    'activeTab' => false
 ])
 @php
     $name = $attributes->wire('tabs')->value;
     $value = $name ? "\$wire.entangle('tabs.{$name}')" : "'" . \Illuminate\Support\Arr::first(array_keys($items)) . "'";
+    $value = $activeTab ? "'{$activeTab}'" : $value;
 @endphp
 
-<div @if($items) x-data="{ activeTab: {{ $value }} }" @endif>
+<div  x-data="{ activeTab: {{ $value }} }">
     <div {{ $attributes->merge(['class' => 'tabs'])->class(['tabs-boxed' => $boxed]) }}>
         @if($items)
             @foreach ($items as $key => $item)

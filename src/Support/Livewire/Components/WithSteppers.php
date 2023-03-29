@@ -107,7 +107,7 @@ trait WithSteppers
      */
     public function isInStep($name, $step)
     {
-
+        return $this->getStep($name) === $step;
     }
 
     /**

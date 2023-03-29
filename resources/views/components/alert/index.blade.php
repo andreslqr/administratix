@@ -8,7 +8,7 @@
 @endphp
 
 
-<div {{ $attributes->merge(['class' => 'alert']) }} @if($name) x-data="{ open: $wire.entangle('alerts.{{ $name }}') }" x-show="open" @endif>
+<div {{ $attributes->merge(['class' => 'alert']) }} @if($name) x-data="{ open: $wire.entangle('alerts.{{ $name }}') }" x-show="open" x-cloak @endif>
     <div>
         @isset($icon)
             {{ $icon }}

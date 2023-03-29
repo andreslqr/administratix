@@ -38,7 +38,7 @@
                         
                 @endphp
                 
-                <div x-show="step == '{{ $item }}'" >
+                <div x-show="step == '{{ $item }}'" x-cloak>
                     {{ $$slotName }}
                 </div>
             @endforeach

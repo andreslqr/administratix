@@ -3,3 +3,7 @@
 @import "global";
 @import "components/icon/awesome/fontawesome";
 
+[x-cloak] 
+{ 
+    display: none !important; 
+}

@@ -35,68 +35,19 @@
             <tbody>
                 <tr>
                     <td>
-                        vertical 
-                    </td>
-                    <td>
-                        Boolean
-                    </td>
-                    <td>
-                        true, false
-                    </td>
-                    <td>
-                        Show the steps in vertical mode
-                    </td>
-                    <td>
-                        false
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        class-for-active
+                        tabs
                     </td>
                     <td>
                         String
                     </td>
                     <td>
+                        
                     </td>
                     <td>
-                        Used in the steps when are active 
+                        Slot for tabs
                     </td>
                     <td>
-                        null
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        active 
-                    </td>
-                    <td>
-                        Boolean
-                    </td>
-                    <td>
-                        true, false
-                    </td>
-                    <td>
-                        Show the item as active
-                    </td>
-                    <td>
-                        false
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        data-content
-                    </td>
-                    <td>
-                        String
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        The content of the step
-                    </td>
-                    <td>
-                        null
+                        
                     </td>
                 </tr>
                 <tr>
@@ -107,16 +58,130 @@
                         String
                     </td>
                     <td>
+                        
                     </td>
                     <td>
-                        Used instead default slot 
+                        Slot for content
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        items
+                    </td>
+                    <td>
+                        array
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        The auto items/tabs array values
                     </td>
                     <td>
                         null
                     </td>
                 </tr>
-
-
+                <tr>
+                    <td>
+                        bordered
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show border in the tabs
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        lifted
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show lifted
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        boxed
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show as button
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        active-tab
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Set the active tab via attribute
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        for
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        The name for the tab
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        active
+                    </td>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        true, false
+                    </td>
+                    <td>
+                        Show as active tab
+                    </td>
+                    <td>
+                        false
+                    </td>
+                </tr>
             </tbody>
         </table>
 
@@ -127,7 +192,7 @@
     <div>
 
         <h2 class="text-xl font-bold mt-6">
-            Steps
+            Tabs
         </h2>
 
         <div x-data="{ active: 'preview' }" class="mt-6">
@@ -141,21 +206,57 @@
             <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
                 <div x-show="active == 'preview'"
                     class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
-                    <ul class="steps">
-                        <li class="step step-primary">Register</li>
-                        <li class="step step-primary">Choose plan</li>
-                        <li class="step">Purchase</li>
-                        <li class="step">Receive Product</li>
-                    </ul>
+                    <div x-data="{ activeTab: 'Tab 1' }">
+                        <div class="tabs">
+                            <div class=" tab tab-active" x-on:click="activeTab = 'Tab 1'" x-bind:class="{'tab-active': 'Tab 1' == activeTab}">
+                                Tab 1
+                            </div>            
+                            <div class=" tab" x-on:click="activeTab = 'Tab 2'" x-bind:class="{'tab-active': 'Tab 2' == activeTab}">
+                                Tab 2
+                            </div>            
+                            <div class=" tab" x-on:click="activeTab = 'Tab 3'" x-bind:class="{'tab-active': 'Tab 3' == activeTab}">
+                                Tab 3
+                            </div>
+                        </div>
+                        <div>
+                            <div x-show="'Tab 1' == activeTab">
+                                Content for Tab 1
+                            </div>              
+                            <div x-show="'Tab 2' == activeTab" style="display: none;">
+                                Content for Tab 2
+                            </div>              
+                            <div x-show="'Tab 3' == activeTab" style="display: none;">
+                                Content for Tab 3
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div x-show="active == 'code'">
                     <pre class="language-html">
-        <code>&#60;x-admin::steps>
-            <code>&#60;x-admin::steps.item content="Register" active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Choose plan"  active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Purchase" /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Receive Product" /&#62;</code>
-        <code>&#60;/x-admin::steps&#62;</code>
+        <code>&#60;x-admin::tabs active-tab="Tab 1"&#62;</code>
+            <code>&#60;x-slot name="tabs"&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 1"&#62;</code>
+                    Tab 1
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 2"&#62;</code>
+                    Tab 2
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 3"&#62;</code>
+                    Tab 3
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 1"&#62;</code>
+                    Content for Tab 1
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 2"&#62;</code>
+                    Content for Tab 2
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 3"&#62;</code>
+                    Content for Tab 3
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::tabs&#62;</code>
     </pre>
                 </div>
             </div>
@@ -165,7 +266,7 @@
     <div>
 
         <h2 class="text-xl font-bold mt-6">
-            Custom colors
+            Bordered
         </h2>
 
         <div x-data="{ active: 'preview' }" class="mt-6">
@@ -179,21 +280,131 @@
             <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
                 <div x-show="active == 'preview'"
                     class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
-                    <ul class="steps">
-                        <li class="step step-error">Register</li>
-                        <li class="step step-error">Choose plan</li>
-                        <li class="step step-success">Purchase</li>
-                        <li class="step step-success">Receive Product</li>
-                    </ul>
+                    <div x-data="{ activeTab: 'Tab 1' }">
+                        <div class="tabs">
+                            <div class=" tab-bordered tab tab-active" x-on:click="activeTab = 'Tab 1'" x-bind:class="{'tab-active': 'Tab 1' == activeTab}">
+                                Tab 1
+                            </div>            
+                            <div class=" tab-bordered tab" x-on:click="activeTab = 'Tab 2'" x-bind:class="{'tab-active': 'Tab 2' == activeTab}">
+                                Tab 2
+                            </div>            
+                            <div class=" tab-bordered tab" x-on:click="activeTab = 'Tab 3'" x-bind:class="{'tab-active': 'Tab 3' == activeTab}">
+                                Tab 3
+                            </div>
+                        </div>
+                        <div>
+                            <div x-show="'Tab 1' == activeTab">
+                                Content for Tab 1
+                            </div>              
+                            <div x-show="'Tab 2' == activeTab" style="display: none;">
+                                Content for Tab 2
+                            </div>              
+                            <div x-show="'Tab 3' == activeTab" style="display: none;">
+                                Content for Tab 3
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div x-show="active == 'code'">
                     <pre class="language-html">
-        <code>&#60;x-admin::steps class-for-active="step-error">
-            <code>&#60;x-admin::steps.item content="Register" active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Choose plan" active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Purchase" class-for-active="step-success" active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Receive Product" class-for-active="step-success" active /&#62;</code>
-        <code>&#60;/x-admin::steps&#62;</code>
+        <code>&#60;x-admin::tabs active-tab="Tab 1" bordered&#62;</code>
+            <code>&#60;x-slot name="tabs"&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 1"&#62;</code>
+                    Tab 1
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 2"&#62;</code>
+                    Tab 2
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 3"&#62;</code>
+                    Tab 3
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 1"&#62;</code>
+                    Content for Tab 1
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 2"&#62;</code>
+                    Content for Tab 2
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 3"&#62;</code>
+                    Content for Tab 3
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::tabs&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
+            Lifted
+        </h2>
+
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                    x-on:click="active = 'preview'">Preview</a>
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                    x-on:click="active = 'code'">Code</a>
+            </div>
+
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'"
+                    class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div x-data="{ activeTab: 'Tab 1' }">
+                        <div class="tabs">
+                            <div class=" tab-lifted tab tab-active" x-on:click="activeTab = 'Tab 1'" x-bind:class="{'tab-active': 'Tab 1' == activeTab}">
+                                Tab 1
+                            </div>            
+                            <div class=" tab-lifted tab" x-on:click="activeTab = 'Tab 2'" x-bind:class="{'tab-active': 'Tab 2' == activeTab}">
+                                Tab 2
+                            </div>            
+                            <div class=" tab-lifted tab" x-on:click="activeTab = 'Tab 3'" x-bind:class="{'tab-active': 'Tab 3' == activeTab}">
+                                Tab 3
+                            </div>
+                        </div>
+                        <div>
+                            <div x-show="'Tab 1' == activeTab">
+                                Content for Tab 1
+                            </div>              
+                            <div x-show="'Tab 2' == activeTab" style="display: none;">
+                                Content for Tab 2
+                            </div>              
+                            <div x-show="'Tab 3' == activeTab" style="display: none;">
+                                Content for Tab 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+                    <pre class="language-html">
+        <code>&#60;x-admin::tabs active-tab="Tab 1" lifted&#62;</code>
+            <code>&#60;x-slot name="tabs"&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 1"&#62;</code>
+                    Tab 1
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 2"&#62;</code>
+                    Tab 2
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 3"&#62;</code>
+                    Tab 3
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 1"&#62;</code>
+                    Content for Tab 1
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 2"&#62;</code>
+                    Content for Tab 2
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 3"&#62;</code>
+                    Content for Tab 3
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::tabs&#62;</code>
     </pre>
                 </div>
             </div>
@@ -203,7 +414,7 @@
     <div>
 
         <h2 class="text-xl font-bold mt-6">
-            Data content
+            Lifted
         </h2>
 
         <div x-data="{ active: 'preview' }" class="mt-6">
@@ -217,31 +428,62 @@
             <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
                 <div x-show="active == 'preview'"
                     class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
-                    <ul class="steps">
-                        <li data-content="?" class="step step-neutral">Step 1</li>
-                        <li data-content="!" class="step step-neutral">Step 2</li>
-                        <li data-content="✓" class="step step-neutral">Step 3</li>
-                        <li data-content="✕" class="step step-neutral">Step 4</li>
-                        <li data-content="★" class="step step-neutral">Step 5</li>
-                        <li data-content="●" class="step step-neutral">Step 6</li>
-                    </ul>
+                    <div x-data="{ activeTab: 'Tab 1' }">
+                        <div class="tabs tabs-boxed">
+                            <div class=" tab tab-active" x-on:click="activeTab = 'Tab 1'" x-bind:class="{'tab-active': 'Tab 1' == activeTab}">
+                                Tab 1
+                            </div>            
+                            <div class="  tab" x-on:click="activeTab = 'Tab 2'" x-bind:class="{'tab-active': 'Tab 2' == activeTab}">
+                                Tab 2
+                            </div>            
+                            <div class="  tab" x-on:click="activeTab = 'Tab 3'" x-bind:class="{'tab-active': 'Tab 3' == activeTab}">
+                                Tab 3
+                            </div>
+                        </div>
+                        <div>
+                            <div x-show="'Tab 1' == activeTab">
+                                Content for Tab 1
+                            </div>              
+                            <div x-show="'Tab 2' == activeTab" style="display: none;">
+                                Content for Tab 2
+                            </div>              
+                            <div x-show="'Tab 3' == activeTab" style="display: none;">
+                                Content for Tab 3
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div x-show="active == 'code'">
                     <pre class="language-html">
-        <code>&#60;x-admin::steps class-for-active="step-neutral">
-            <code>&#60;x-admin::steps.item content="Step 1" data-content="?" active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Step 2" data-content="!" active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Step 3" data-content="✓" active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Step 4" data-content="✕" active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Step 5" data-content="★" active /&#62;</code>
-            <code>&#60;x-admin::steps.item content="Step 6" data-content="●" active /&#62;</code>
-        <code>&#60;/x-admin::steps&#62;</code>
+        <code>&#60;x-admin::tabs active-tab="Tab 1" boxed&#62;</code>
+            <code>&#60;x-slot name="tabs"&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 1"&#62;</code>
+                    Tab 1
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 2"&#62;</code>
+                    Tab 2
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+                <code>&#60;x-admin::tabs.tab for="Tab 3"&#62;</code>
+                    Tab 3
+                <code>&#60;/x-admin::tabs.tab&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+            <code>&#60;x-slot name="content"&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 1"&#62;</code>
+                    Content for Tab 1
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 2"&#62;</code>
+                    Content for Tab 2
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+                <code>&#60;x-admin::tabs.item for="Tab 3"&#62;</code>
+                    Content for Tab 3
+                <code>&#60;/x-admin::tabs.item&#62;</code>
+            <code>&#60;/x-slot&#62;</code>
+        <code>&#60;/x-admin::tabs&#62;</code>
     </pre>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div>
 
@@ -250,10 +492,9 @@
         </h2>
 
         <p class="mt-6">
-            You can control any alert of your form from livewire if you add the
-            <code>\Administratix\Administratix\Support\Livewire\Components\WithSteppers</code> trait in your component,
-            then you can access to any method, the <code class="text-warning">$steppers</code> property defines the
-            steps from a stepper, and the property <code class="text-warning">$step</code> defines the current step
+            You can control any tabs of your form from livewire if you add the
+            <code>\Administratix\Administratix\Support\Livewire\Components\WithTabs</code> trait in your component,
+            then you can access to any method, the <code class="text-warning">$tabs</code> property defines tabs from a tab group
 
         </p>
 
@@ -270,77 +511,46 @@
             <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto h-64">
                 <div x-data="{ show: false }" x-show="active == 'preview'"
                     class="h-64 preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
-                    
-                    <div class="flex" x-data="{ items: ['register', 'login', 'fill form', 'select payment method', 'pay'], step: 'register' }">
-
-                        <button class="btn btn-info" x-on:click="() => {
-                            let index = items.findIndex(el => el == step);
-
-                            if(--index in items)
-                                step = items[index];
-                        }">
-                            Prev step 
-                        </button>
-                        <div>
-    
-                            <div class="steps">
-                                <template x-for="(item, index) in items">
-                                    <li class="step step-neutral" x-bind:data-content="index"  x-bind:key="index" x-text="item" x-bind:class="{ 'step-neutral': ! items.slice(0, index).includes(step) }">
-                                    </li>
-                                </template>
-                            </div>
-                            <div class="text-center text-lg">
-    
-                                <div x-show="step == 'register'" style="display: none;">
-                                    Register here
-                                </div>
-    
-                                <div x-show="step == 'login'">
-                                    Login here
-                                </div>
-    
-                                <div x-show="step == 'fill form'" style="display: none;">
-                                    Fill Form here
-                                </div>
-    
-                                <div x-show="step == 'select payment method'" style="display: none;">
-                                    Select payment method method here
-                                </div>
-    
-                                <div x-show="step == 'pay'" style="display: none;">
-                                    Pay here
-                                </div>
+                    <div x-data="{ activeTab: 'Tab 2' }">
+                        <div class="tabs">
+                            <div class=" tab tab-active" x-on:click="activeTab = 'Tab 1'" x-bind:class="{'tab-active': 'Tab 1' == activeTab}">
+                                Tab 1
+                            </div>            
+                            <div class=" tab" x-on:click="activeTab = 'Tab 2'" x-bind:class="{'tab-active': 'Tab 2' == activeTab}">
+                                Tab 2
+                            </div>            
+                            <div class=" tab" x-on:click="activeTab = 'Tab 3'" x-bind:class="{'tab-active': 'Tab 3' == activeTab}">
+                                Tab 3
                             </div>
                         </div>
-                        <button class="btn btn-info" x-on:click="() => {
-                            let index = items.findIndex(el => el == step);
-
-                            if(++index in items)
-                                step = items[index];
-                        }">
-                            Next step 
-                        </button>
-                    </div>
+                        <div>
+                            <div x-show="'Tab 1' == activeTab">
+                                Content for Tab 1
+                            </div>              
+                            <div x-show="'Tab 2' == activeTab" style="display: none;">
+                                Content for Tab 2
+                            </div>              
+                            <div x-show="'Tab 3' == activeTab" style="display: none;">
+                                Content for Tab 3
+                            </div>
+                        </div>
+                    </div> 
+                    
                 </div>
                 <div x-show="active == 'code'">
                     <pre class="language-html">
-        <code>&#60;x-admin::steps class-for-active="step-neutral" wire:stepper="payment"&#62;</code>
-            <code>&#60;x-slot name="register"&#62;</code>
-                Register here
+        <code>&#60;x-admin::tabs wire:tabs="menu" :items="['tab1' => 'Tab 1', 'tab2' => 'Tab 2', 'tab3' => 'Tab 3']"&#62;</code>
+            <code>&#60;x-slot name="contentTab1"&#62;</code>
+                Content for Tab 1
             <code>&#60;/x-slot&#62;</code>
-            <code>&#60;x-slot name="login"&#62;</code>
-                Login here
+            <code>&#60;x-slot name="contentTab2"&#62;</code>
+                Content for Tab 2
             <code>&#60;/x-slot&#62;</code>
-            <code>&#60;x-slot name="fillForm"&#62;</code>
-                Fill Form here
+            <code>&#60;x-slot name="contentTab3"&#62;</code>
+                Content for Tab 3
             <code>&#60;/x-slot&#62;</code>
-            <code>&#60;x-slot name="selectPaymentMethod"&#62;</code>
-                Select payment method method here
-            <code>&#60;/x-slot&#62;</code>
-            <code>&#60;x-slot name="pay"&#62;</code>
-                Pay here
-            <code>&#60;/x-slot&#62;</code>
-        <code>&#60;/x-admin::steps&#62;</code>
+        <code>&#60;/x-admin::tabs&#62;</code>
+        
     </pre>
                 </div>
                 <div x-show="active == 'livewire'">
@@ -349,21 +559,15 @@
 
         <code>class MyLivewireComponent extends Component</code>
         <code>{</code>
-            <code>use \Administratix\Administratix\Support\Livewire\Components\WithSteppers;</code>
+            <code>use \Administratix\Administratix\Support\Livewire\Components\WithTabs;</code>
             
             <code>/**</code>
-            <code>* The stepper elements</code>
+            <code>* The tab elements</code>
             <code>* </code>
             <code>* @var array</code>
             <code>*/</code>
-            <code>public $steppers = [</code>
-                <code>'payment' => [</code>
-                <code>      'register',</code>
-                <code>      'login',</code>
-                <code>      'fill form',</code>
-                <code>      'select payment method',</code>
-                <code>      'pay'</code>
-                <code>]</code>
+            <code>public $tabs = [</code>
+                <code>'menu' => 'tab2'</code>
             <code>];</code>
 
             <code>/**</code>
@@ -377,18 +581,15 @@
 
             <code>public function editData()</code>
             <code>{</code>
-                <code>$this->getStep('payment'); // get the current active step</code>
+                <code>$this->getTab('menu'); // get the current active tab</code>
 
-                <code>$this->setStep('payment', 'fill form'); // set the step to active</code>
+                <code>$this->showTab('menu', 'tab2'); // set the active tab</code>
 
-                <code>$this->nextStep('payment'); // Show the next step</code>
 
-                <code>$this->prevStep('payment'); // Show the previous step</code>
-
-                <code>if($this->isInStep('payment', 'login')) // Check if the alert is open</code>
+                <code>if($this->isTabOpen('menu', 'tab3')) // Check if the tab is open</code>
                     <code>$this->doSomething();</code>
 
-                <code>if($this->stepWasPassed('payment', 'login')) // Check if the alert is closed</code>
+                <code>if($this->isTabClosed('menu', 'tab1')) // Check if the tab is closed</code>
                     <code>$this->doSomenthing();</code>
             }
         <code>}</code>
