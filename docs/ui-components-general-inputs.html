@@ -515,7 +515,498 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-3xl font-bold mt-6">
+            Select input
+        </h2>
+        <p class="mt-6">
+            to see more about the css classes please see <a href="https://daisyui.com/components/select"
+            target="_blank" class="link text-[#661ae6]">Daisy Select Input</a>
+        </p>
+    
+        <div class="overflow-x-auto mt-6">
+            <table class="table table-compact table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            Attribute
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Values
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Default
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            placeholder
+                        </td>
+                        <td>
+                            String 
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            The placeholder when none value is selected
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            options
+                        </td>
+                        <td>
+                            Array
+                        </td>
+                        <td>
+                            [...]
+                        </td>
+                        <td>
+                            Instead of use <code class="language-html">&#60;option&#62;</code> tag, you can pass an array of key => value
+                        </td>
+                        <td>
+                            null
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            key-name
+                        </td>
+                        <td>
+                            String
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            If the <code>options</code> property is a complex array such as array of models, you can pass the name of the key for the value
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            value-name
+                        </td>
+                        <td>
+                            String
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            If the <code>options</code> property is a complex array such as array of models, you can pass the name of the key for the render
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            bordered
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            Show the input without borders
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ghost
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            Show the input as ghost state
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            without-placeholder
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            remove the option used as placehoder
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            formatter
+                        </td>
+                        <td>
+                            Callable
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            A PHP function for format the value
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
         </div>
+    
+        <div>
+    
+            <div x-data="{ active: 'preview' }" class="mt-6">
+                <div class="tabs">
+                    <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                        x-on:click="active = 'preview'">Preview</a>
+                    <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                        x-on:click="active = 'code'">Code</a>
+                </div>
+    
+                <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                    <div x-show="active == 'preview'"
+                        class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <select class="select-bordered select w-full">
+                            <option selected="" value="">
+                                Select
+                            </option>
+                            <option value="0">
+                                Prof. Gillian Paucek (bradtke.emmitt@example.org)
+                            </option>
+                            <option value="1">
+                                Jarrett Bergnaum (jeromy.volkman@example.net)
+                            </option>
+                            <option value="2">
+                                Abbigail Lemke (johnathan41@example.net)
+                            </option>
+                            <option value="3">
+                                Asia Swaniawski (eichmann.nicola@example.net)
+                            </option>
+                            <option value="4">
+                                Darrick Barrows (velva.hilpert@example.org)
+                            </option>
+                            <option value="5">
+                                Jayden Cremin PhD (osinski.elda@example.org)
+                            </option>
+                            <option value="6">
+                                Imani Cartwright IV (alyce.lind@example.net)
+                            </option>
+                            <option value="7">
+                                Mellie Reynolds (dswaniawski@example.com)
+                            </option>
+                            <option value="8">
+                                Prof. Gordon Herman MD (xoconner@example.org)
+                            </option>
+                            <option value="9">
+                                Duane Lockman (mathew53@example.net)
+                            </option>
+            </select> 
+                    </div>
+                    <div x-show="active == 'code'">
+        <pre class="language-html">
+            <code>&#60;x-admin::form.input.select :options="$users" :formatter="fn($user) => $user->name . ' (' . $user->email . ')'" /&#62;</code>
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-3xl font-bold mt-6">
+            Text input
+        </h2>
+        <p class="mt-6">
+            to see more about the css classes please see <a href="https://daisyui.com/components/input"
+            target="_blank" class="link text-[#661ae6]">Daisy Text Input</a>
+        </p>
+    
+        <div class="overflow-x-auto mt-6">
+            <table class="table table-compact table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            Attribute
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Values
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Default
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            bordered
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            Show the input without borders
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ghost
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            Show the input as ghost state
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    
+        <div>
+    
+            <div x-data="{ active: 'preview' }" class="mt-6">
+                <div class="tabs">
+                    <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                        x-on:click="active = 'preview'">Preview</a>
+                    <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                        x-on:click="active = 'code'">Code</a>
+                </div>
+    
+                <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                    <div x-show="active == 'preview'"
+                        class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <input type="text" class="input-bordered input w-full" />
+                    </div>
+                    <div x-show="active == 'code'">
+        <pre class="language-html">
+            <code>&#60;x-admin::form.input.text /&#62;</code>
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-3xl font-bold mt-6">
+            Textarea input
+        </h2>
+        <p class="mt-6">
+            to see more about the css classes please see <a href="https://daisyui.com/components/textarea"
+            target="_blank" class="link text-[#661ae6]">Daisy Textarea Input</a>
+        </p>
+    
+        <div class="overflow-x-auto mt-6">
+            <table class="table table-compact table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            Attribute
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Values
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Default
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            bordered
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            Show the input without borders
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ghost
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            Show the input as ghost state
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    
+        <div>
+    
+            <div x-data="{ active: 'preview' }" class="mt-6">
+                <div class="tabs">
+                    <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                        x-on:click="active = 'preview'">Preview</a>
+                    <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                        x-on:click="active = 'code'">Code</a>
+                </div>
+    
+                <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                    <div x-show="active == 'preview'"
+                        class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <textarea class="textarea-bordered textarea w-full"></textarea>
+                    </div>
+                    <div x-show="active == 'code'">
+        <pre class="language-html">
+            <code>&#60;x-admin::form.input.textarea /&#62;</code>
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-3xl font-bold mt-6">
+            Toggle input
+        </h2>
+        <p class="mt-6">
+            to see more about the css classes please see <a href="https://daisyui.com/components/toggle"
+            target="_blank" class="link text-[#661ae6]">Daisy Toggle Input</a>
+        </p>
+    
+        <div class="overflow-x-auto mt-6">
+            <table class="table table-compact table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            Attribute
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Values
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Default
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td colspan="5" class="text-center">
+                            Without available attributes
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    
+        <div>
+    
+            <div x-data="{ active: 'preview' }" class="mt-6">
+                <div class="tabs">
+                    <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                        x-on:click="active = 'preview'">Preview</a>
+                    <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                        x-on:click="active = 'code'">Code</a>
+                </div>
+    
+                <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                    <div x-show="active == 'preview'"
+                        class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <input class="toggle" type="checkbox">
+                    </div>
+                    <div x-show="active == 'code'">
+        <pre class="language-html">
+            <code>&#60;x-admin::form.input.toggle /&#62;</code>
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {{/layouts/app }}
