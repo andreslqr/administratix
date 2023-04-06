@@ -1,0 +1,521 @@
+{{#> layouts/app }}
+
+<div class="container pt-3">
+    <h1 class="text-5xl font-bold">
+        HTML general inputs
+    </h1>
+
+    <div>
+
+    </div>
+    <p class="mt-6">
+        This is a <a href="https://laravel.com" target="_blank" class="link text-[#F9322C]">Laravel</a> and <a
+            href="https://www.laravel-livewire.com" target="_blank" class="link text-[#fb70a9]">Livewire</a>
+        Implementation, and this docs are only the default html inputs and the general configurations from <a href="https://daisyui.com/components"
+            target="_blank" class="link text-[#661ae6]">DaisyUI</a>
+    </p>
+
+    <div>
+
+        <h2 class="text-3xl font-bold mt-6">
+            Checkbox
+        </h2>
+        <p class="mt-6">
+            to see more about the css classes please see <a href="https://daisyui.com/components/checkbox"
+            target="_blank" class="link text-[#661ae6]">Daisy Checkbox</a>
+        </p>
+    
+        <div class="overflow-x-auto mt-6">
+            <table class="table table-compact table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            Attribute
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Values
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Default
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            Without available attributes
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    
+        <div>
+    
+            <div x-data="{ active: 'preview' }" class="mt-6">
+                <div class="tabs">
+                    <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                        x-on:click="active = 'preview'">Preview</a>
+                    <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                        x-on:click="active = 'code'">Code</a>
+                </div>
+    
+                <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                    <div x-show="active == 'preview'"
+                        class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <input type="checkbox" checked="checked" class="checkbox" />
+                    </div>
+                    <div x-show="active == 'code'">
+        <pre class="language-html">
+            <code>&#60;x-admin::form.input.checkbox /&#62;</code>
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-3xl font-bold mt-6">
+            File input
+        </h2>
+        <p class="mt-6">
+            to see more about the css classes please see <a href="https://daisyui.com/components/checkbox"
+            target="_blank" class="link text-[#661ae6]">Daisy File Input</a>
+        </p>
+    
+        <div class="overflow-x-auto mt-6">
+            <table class="table table-compact table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            Attribute
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Values
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Default
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            bordered
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            Show the input without borders
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ghost
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            Show the input as ghost state
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    
+        <div>
+    
+            <div x-data="{ active: 'preview' }" class="mt-6">
+                <div class="tabs">
+                    <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                        x-on:click="active = 'preview'">Preview</a>
+                    <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                        x-on:click="active = 'code'">Code</a>
+                </div>
+    
+                <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                    <div x-show="active == 'preview'"
+                        class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <input type="file" class="file-input w-full max-w-xs" />
+                    </div>
+                    <div x-show="active == 'code'">
+        <pre class="language-html">
+            <code>&#60;x-admin::form.input.file /&#62;</code>
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div>
+
+        <h2 class="text-3xl font-bold mt-6">
+            Radio
+        </h2>
+        <p class="mt-6">
+            to see more about the css classes please see <a href="https://daisyui.com/components/radio"
+            target="_blank" class="link text-[#661ae6]">Daisy Radio Input</a>
+        </p>
+    
+        <div class="overflow-x-auto mt-6">
+            <table class="table table-compact table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            Attribute
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Values
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Default
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td colspan="5" class="text-center">
+                        Without available attributes
+                    </td>
+                </tbody>
+            </table>
+    
+        </div>
+    
+        <div>
+    
+            <div x-data="{ active: 'preview' }" class="mt-6">
+                <div class="tabs">
+                    <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                        x-on:click="active = 'preview'">Preview</a>
+                    <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                        x-on:click="active = 'code'">Code</a>
+                </div>
+    
+                <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                    <div x-show="active == 'preview'"
+                        class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <input type="radio" name="radio-1" class="radio" checked />
+                        <input type="radio" name="radio-1" class="radio" />
+                    </div>
+                    <div x-show="active == 'code'">
+        <pre class="language-html">
+            <code>&#60;x-admin::form.input.radio wire:model="selected" :value="1" /&#62;</code>
+            <code>&#60;x-admin::form.input.radio wire:model="selected" :value="2" /&#62;</code>
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-3xl font-bold mt-6">
+            Range
+        </h2>
+        <p class="mt-6">
+            to see more about the css classes please see <a href="https://daisyui.com/components/range"
+            target="_blank" class="link text-[#661ae6]">Daisy Range Input</a>
+        </p>
+    
+        <div class="overflow-x-auto mt-6">
+            <table class="table table-compact table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            Attribute
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Values
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Default
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            min
+                        </td>
+                        <td>
+                            Integer
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            The min value (html default behavior)
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           max 
+                        </td>
+                        <td>
+                            Integer
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            The max value (html default behavior)
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            step
+                        </td>
+                        <td>
+                            Integer
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            The step value (html default behavior)
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            with-steps
+                        </td>
+                        <td>
+                            Boolean
+                        </td>
+                        <td>
+                            true, false
+                        </td>
+                        <td>
+                            Show lines under the range input
+                        </td>
+                        <td>
+                            false
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    
+        <div>
+    
+            <div x-data="{ active: 'preview' }" class="mt-6">
+                <div class="tabs">
+                    <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                        x-on:click="active = 'preview'">Preview</a>
+                    <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                        x-on:click="active = 'code'">Code</a>
+                </div>
+    
+                <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                    <div x-show="active == 'preview'"
+                        class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <input type="range" min="0" max="100" value="25" class="range" step="25" />
+                        <div class="w-full flex justify-between text-xs px-2">
+                            <span>|</span>
+                            <span>|</span>
+                            <span>|</span>
+                            <span>|</span>
+                            <span>|</span>
+                        </div>
+                    </div>
+                    <div x-show="active == 'code'">
+        <pre class="language-html">
+            <code>&#60;x-admin::form.input.range :min="0" :max="100" :step="25" with-steps /&#62;</code>
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-3xl font-bold mt-6">
+            Rating input
+        </h2>
+        <p class="mt-6">
+            to see more about the css classes please see <a href="https://daisyui.com/components/rating"
+            target="_blank" class="link text-[#661ae6]">Daisy Rating Input</a>
+        </p>
+    
+        <div class="overflow-x-auto mt-6">
+            <table class="table table-compact table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            Attribute
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Values
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Default
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            name
+                        </td>
+                        <td>
+                            String 
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            The name of the input (use instead of wire:model)
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            values
+                        </td>
+                        <td>
+                            Array
+                        </td>
+                        <td>
+                            [...]
+                        </td>
+                        <td>
+                            The values of each rate (default 0 to max property)
+                        </td>
+                        <td>
+                            [0, 1, 2, 3, ...]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            max
+                        </td>
+                        <td>
+                            Integer
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            The max value for the generator of rate (doesn't work if you already use values property)
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            mask-class
+                        </td>
+                        <td>
+                            String
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            The <a href="https://daisyui.com/components/mask"
+            target="_blank" class="link text-[#661ae6]">mask crop</a> for the elements
+                        </td>
+                        <td>
+                            mask-star
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    
+        <div>
+    
+            <div x-data="{ active: 'preview' }" class="mt-6">
+                <div class="tabs">
+                    <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''"
+                        x-on:click="active = 'preview'">Preview</a>
+                    <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''"
+                        x-on:click="active = 'code'">Code</a>
+                </div>
+    
+                <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                    <div x-show="active == 'preview'"
+                        class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                        <div class="rating">
+                            <input type="radio" name="rating-1" class="mask mask-star" />
+                            <input type="radio" name="rating-1" class="mask mask-star" checked />
+                            <input type="radio" name="rating-1" class="mask mask-star" />
+                            <input type="radio" name="rating-1" class="mask mask-star" />
+                            <input type="radio" name="rating-1" class="mask mask-star" />
+                        </div>
+                    </div>
+                    <div x-show="active == 'code'">
+        <pre class="language-html">
+            <code>&#60;x-admin::form.input.rating :max="5" /&#62;</code>
+        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+{{/layouts/app }}
