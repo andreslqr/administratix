@@ -1,7 +1,8 @@
 @props([
+    'content',
     'horizontal' => false
 ])
 
 <div {{ $attributes->merge(['class' => 'divider'])->class(['divider-horizontal' => $horizontal]) }}>
-    {{ $slot }}
+    {{ $content ?? $slot }}
 </div>

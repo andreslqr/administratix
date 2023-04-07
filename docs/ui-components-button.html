@@ -372,6 +372,45 @@
     <div>
 
         <h2 class="text-xl font-bold mt-6">
+            Button group
+        </h2>
+    
+        <div x-data="{ active: 'preview' }" class="mt-6">
+            <div class="tabs">
+                <a class="tab tab-lifted" x-bind:class=" active == 'preview' ? 'tab-active' : ''" x-on:click="active = 'preview'">Preview</a> 
+                <a class="tab tab-lifted" x-bind:class=" active == 'code' ? 'tab-active' : ''" x-on:click="active = 'code'">Code</a> 
+            </div>
+    
+            <div class="bg-base-300 rounded-b-box rounded-tr-box relative overflow-x-auto">
+                <div x-show="active == 'preview'" class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined">
+                    <div class="btn-group">
+                        <button class="btn btn-primary">Button</button>
+                        <button class="btn btn-secondary">Button</button>
+                        <button class="btn btn-success">Button</button>
+                    </div>
+                </div>
+                <div x-show="active == 'code'">
+    <pre class="language-html">
+        <code>&#60;x-admin::button.wrapper&#62;</code>
+            <code>&#60;x-admin::button class="btn-primary"&#62;</code>
+                BUTTON
+            <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;x-admin::button class="btn-secondary"&#62;</code>
+                BUTTON
+            <code>&#60;/x-admin::button&#62;</code>
+            <code>&#60;x-admin::button class="btn-success"&#62;</code>
+                BUTTON
+            <code>&#60;/x-admin::button&#62;</code>
+        <code>&#60;/x-admin::button.wrapper&#62;</code>
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h2 class="text-xl font-bold mt-6">
             Button ghost
         </h2>
     
