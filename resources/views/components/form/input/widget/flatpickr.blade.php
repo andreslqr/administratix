@@ -22,7 +22,7 @@
         options: {{ $varOptions }}
     }"
     x-init="$watch('options', (newConfig) => {
-        for (const [option, value] of Object.entries(newConfig)) {
+        for (const [option, value] of Object.entries(newConfig.options)) {
             instance.set(option, value);
         }
     });
@@ -35,6 +35,7 @@
     "
     >
     <x-dynamic-component :component="$inputComponent" :attributes="$attributes->whereDoesntStartWith('wire')"
+        x-model="value"
         x-init="
         element = $el;
         instance = flatpickr($el, {
