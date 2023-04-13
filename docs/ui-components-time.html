@@ -35,7 +35,7 @@
             <tbody>
                 <tr>
                     <td>
-                        content
+                        input-component
                     </td>
                     <td>
                         String
@@ -43,7 +43,55 @@
                     <td>
                     </td>
                     <td>
-                        Use for display image or text
+                        The component used for flatpickr implementation
+                    </td>
+                    <td>
+                        x-admin::form.input.text
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        format
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        The format for the livewire back, see <a href="https://flatpickr.js.org/formatting/" class="link text-[#5893ff]" target="_blank">Formatting Tokens</a>
+                    </td>
+                    <td>
+                        H:i
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        display-format
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        The format for the livewire front see <a href="https://flatpickr.js.org/formatting/" class="link text-[#5893ff]" target="_blank">Formatting Tokens</a>
+                    </td>
+                    <td>
+                        H:i
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        min-date 
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        The minimum date 
                     </td>
                     <td>
                         null
@@ -51,7 +99,23 @@
                 </tr>
                 <tr>
                     <td>
-                        online
+                        max-date 
+                    </td>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        The maximum date 
+                    </td>
+                    <td>
+                        null
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        with-seconds
                     </td>
                     <td>
                         Boolean
@@ -60,10 +124,26 @@
                         true, false
                     </td>
                     <td>
-                        Show badge with status active
+                        Show the third parameter seconds
                     </td>
                     <td>
                         false
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        options
+                    </td>
+                    <td>
+                        Array
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        Any extra values from the <a href="https://flatpickr.js.org/options/" class="link text-[#5893ff]" target="_blank">Flatpickr options</a>
+                    </td>
+                    <td>
+                        
                     </td>
                 </tr>
             </tbody>
@@ -111,8 +191,7 @@
                 </div>
                 <div x-show="active == 'code'">
                     <pre class="language-html">
-        <code>&#60;x-admin::avatar class="w-32 rounded" content="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /&#62;</code>
-        <code>&#60;x-admin::avatar class="w-32 rounded" content="Jhon Doe" /&#62;</code>
+        <code>&#60;x-admin::form.input.widget.time wire:model="time" /&#62;</code>
     </pre>
                 </div>
             </div>
