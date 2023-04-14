@@ -135,7 +135,7 @@ class Flatpickr extends Widget
         'toggle'
     ];
 
-     /**
+    /**
      * The available events for js instance
      * 
      * @var array

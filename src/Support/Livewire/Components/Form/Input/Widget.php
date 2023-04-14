@@ -8,6 +8,7 @@ use Administratix\Administratix\Exceptions\JsWidgetDoesNotImplementsOption;
 use Illuminate\Support\Arr;
 use Livewire\Component;
 use Livewire\Wireable;
+use Illuminate\Support\Str;
 use TypeError;
 
 abstract class Widget implements Wireable
@@ -186,7 +187,7 @@ abstract class Widget implements Wireable
      */
     protected function performMethods($name, $params)
     {
-        $this->livewireComponent->emitSelf("flatpickr-{$this->wireModelName}", $name, $params);
+        $this->livewireComponent->emitSelf(Str::of(self::class)->kebab()->lower()->finish("-{$this->wireModelName}")->toString(), $name, $params);
     }
 
     /**
