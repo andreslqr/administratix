@@ -21,11 +21,12 @@
         value: {{ $varModel }},
         options: {{ $varOptions }}
     }"
-    x-init="$watch('options', (newConfig) => {
-        for (const [option, value] of Object.entries(newConfig.options)) {
-            instance.set(option, value);
-        }
-    });
+    x-init="
+        $watch('options', (newConfig) => {
+            for (const [option, value] of Object.entries(newConfig.options)) {
+                instance.set(option, value);
+            }
+        });
     @if($wireOptions)
         $wire.on('flatpickr-{{ $wireModel }}', (functionName, args) => {
             instance[functionName](...Object.values(args));
