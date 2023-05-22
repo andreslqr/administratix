@@ -29,23 +29,32 @@
     }"
     x-init="
         $watch('options', (newConfig) => {
-            instance.select2('destroy');
+            $(element).empty().select2('destroy').trigger('change');
             instance = $(element).select2({
                 ...{
                     dropdownParent: element.parentElement,
-                    @if($wireSearch) 
-                        matcher: (params, data) => {
-                            console.log(params.term)
-                            search = params.term;
-                            return data;
-                        },
-                    @endif
+                    {{ $wireSearch ? new Illuminate\Support\HtmlString('matcher: (params, data) => {
+                        search = params.term;
+                        console.log(params.term);
+                        return data;
+                    },') : '' }} 
                 },
                 ...options.options
             });
-            instance.select2('open');
-            $($el).find('textarea').val(search);
+
         });
+        @if($wireOptions)
+            $wire.on('select2-{{ $wireModel }}', (functionName, args) => {
+                console.log(5);
+                $(element).select2(functionName);
+            });
+        @endif
+        @if($wireSearch)
+            $watch('search', (value) => {
+                $(element).select2('open');
+                $($el).find('textarea').val(value);
+            });
+        @endif
     "
 >
 
@@ -56,7 +65,8 @@
             ...{
                 dropdownParent: element.parentElement,
                 {{ $wireSearch ? new Illuminate\Support\HtmlString('matcher: (params, data) => {
-                    search = params.term;
+                    if(params.term !== undefined)
+                        search = params.term;   
                     return data;
                 },') : '' }} 
             },

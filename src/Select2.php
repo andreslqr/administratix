@@ -79,9 +79,7 @@ class Select2 extends Widget
      * @var array
      */
     protected array $jsAvailableMethods = [
-        'open',
-        'close',
-        'destroy'
+
     ];
 
     /**
