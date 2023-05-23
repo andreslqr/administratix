@@ -98,6 +98,17 @@ class Select2 extends Widget
      * @var array
      */
     protected array $jsAvailableEvents = [
-        
+        'change',
+        'change.select2',
+        'select2:closing',
+        'select2:close',
+        'select2:opening',
+        'select2:open',
+        'select2:selecting',
+        'select2:select',
+        'select2:unselecting',
+        'select2:unselect',
+        'select2:clearing',
+        'select2:clear'  
     ];
 }

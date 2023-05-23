@@ -1,7 +1,21 @@
 @props([
     'jqueryComponent' => config('administratix.views.components.widget.jquery.view'),
     'selectComponent' => config('administratix.views.components.form.input.select.view'),
-    'options' => false
+    'options' => false,
+    'events' => [
+        'change',
+        'change.select2',
+        'select2:closing',
+        'select2:close',
+        'select2:opening',
+        'select2:open',
+        'select2:selecting',
+        'select2:select',
+        'select2:unselecting',
+        'select2:unselect',
+        'select2:clearing',
+        'select2:clear'
+    ]
 ])
 
 @php
@@ -74,6 +88,11 @@
         });
         instance.on('change', (e) => value = instance.val());
         $watch('value', (newValue) => instance.val(newValue).trigger('change.select2'));
+        events.forEach(eventName => {
+            $(element).on(eventName, function() {
+                $wire.emit(`{{ $wireModel }}-${eventName}`, ...Object.values(arguments).filter(argument => ['number', 'string', 'boolean'].includes(typeof argument) || Array.isArray(argument)));
+            });
+        })
     ">
     {{ $slot }}
 </x-dynamic-component>
