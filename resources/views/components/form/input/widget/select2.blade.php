@@ -26,7 +26,6 @@
 
     $varModel = $wireModel ? new \Illuminate\Support\HtmlString("\$wire.entangle('{$wireModel}')" . ($defer ? '.defer' : '')) : 'null';
     $varOptions = $wireOptions ? new Illuminate\Support\HtmlString("\$wire.entangle('{$wireOptions}')") : json_encode($options);
-    $varSearch = $wireSearch ? new \Illuminate\Support\HtmlString("\$wire.entangle('{$wireSearch}')" . ($attributes->wire('search')->hasModifier('defer') ? '.defer' : '')) : 'null';
 @endphp
 
 
@@ -37,9 +36,7 @@
         element: null,
         value: {{ $varModel }},
         options: {{ $varOptions }},
-        @if($wireSearch)
-            'search': {{ $varSearch }},
-        @endif
+        searchFunction: '{{ $wireSearch }}',
         'events': [
             'change',
             'change.select2',
@@ -57,14 +54,23 @@
     }"
     x-init="
         $watch('options', (newConfig) => {
-            $(element).empty().select2('destroy').trigger('change');
+            $(element).select2('destroy').trigger('change');
             instance = $(element).select2({
                 ...{
                     dropdownParent: element.parentElement,
-                    {{ $wireSearch ? new Illuminate\Support\HtmlString('matcher: (params, data) => {
-                        search = params.term;
-                        console.log(params.term);
-                        return data;
+                    {{ $wireSearch ? new Illuminate\Support\HtmlString('ajax: {
+                        data: (params) => {
+                            return {
+                                term: params.term,
+                                page: params.page
+                            };
+                        },
+                        transport: (params, success, failure) => {
+                            $wire.call(searchFunction, params.term, params.page)
+                                .then(success)
+                                .catch(failure);
+                        
+                        }
                     },') : '' }} 
                 },
                 ...options.options
@@ -72,16 +78,7 @@
 
         });
         @if($wireOptions)
-            $wire.on('select2-{{ $wireModel }}', (functionName, args) => {
-                console.log(5);
-                $(element).select2(functionName);
-            });
-        @endif
-        @if($wireSearch)
-            $watch('search', (value) => {
-                $(element).select2('open');
-                $($el).find('textarea').val(value);
-            });
+            $wire.on('select2-{{ $wireModel }}', (functionName, args) => $(element).select2(functionName));
         @endif
     "
 >
@@ -92,10 +89,19 @@
         instance = $(element).select2({
             ...{
                 dropdownParent: element.parentElement,
-                {{ $wireSearch ? new Illuminate\Support\HtmlString('matcher: (params, data) => {
-                    if(params.term !== undefined)
-                        search = params.term;   
-                    return data;
+                {{ $wireSearch ? new Illuminate\Support\HtmlString('ajax: {
+                    data: (params) => {
+                        return {
+                            term: params.term,
+                            page: params.page
+                        };
+                    },
+                    transport: (params, success, failure) => {
+                        $wire.call(searchFunction, params.data.term, params.data.page)
+                            .then(success)
+                            .catch(failure);
+                    
+                    }
                 },') : '' }} 
             },
             ...options.options
