@@ -63,6 +63,14 @@ use Administratix\Administratix\Support\Livewire\Components\Form\Input\Widget;
  */
 class Flatpickr extends Widget
 {
+
+    /**
+     * The name of the component widget
+     * 
+     * @var string
+     */
+    protected $widgetName = 'flatpickr';
+
     /**
      * The array options for js with values
      * 

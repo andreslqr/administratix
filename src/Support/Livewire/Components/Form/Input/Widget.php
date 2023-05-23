@@ -28,6 +28,13 @@ abstract class Widget implements Wireable
     protected $wireModelName;
 
     /**
+     * The name of the component widget
+     * 
+     * @var string
+     */
+    protected $widgetName;
+
+    /**
      * The array options for js
      * 
      * @var array
@@ -187,7 +194,7 @@ abstract class Widget implements Wireable
      */
     protected function performMethods($name, $params)
     {
-        $this->livewireComponent->emitSelf(Str::of(self::class)->kebab()->lower()->finish("-{$this->wireModelName}")->toString(), $name, $params);
+        $this->livewireComponent->emitSelf(Str::of($this->widgetName)->kebab()->lower()->finish("-{$this->wireModelName}")->toString(), $name, $params);
     }
 
     /**

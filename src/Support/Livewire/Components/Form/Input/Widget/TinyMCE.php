@@ -11,6 +11,13 @@ use Illuminate\Foundation\Vite;
 class TinyMCE extends Widget
 {
     /**
+     * The name of the component widget
+     * 
+     * @var string
+     */
+    protected $widgetName = 'tinymce';
+
+    /**
      * The constructor of the class
      * 
      * @param array options

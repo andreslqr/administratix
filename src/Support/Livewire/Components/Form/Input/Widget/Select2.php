@@ -10,6 +10,14 @@ use Illuminate\Foundation\Vite;
  */
 class Select2 extends Widget
 {
+
+    /**
+     * The name of the component widget
+     * 
+     * @var string
+     */
+    protected $widgetName = 'select2';
+
     /**
      * The constructor of the class
      * 
