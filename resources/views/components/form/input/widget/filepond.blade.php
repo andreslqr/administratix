@@ -18,7 +18,27 @@
         instance: null,
         element: null,
         value: {{ $varModel }},
-        options: {{ $varOptions }}
+        options: {{ $varOptions }},
+        events: [
+            'init',
+            'warning',
+            'warning',
+            'initfile',
+            'addfilestart',
+            'addfileprogress',
+            'addfile',
+            'processfilestart',
+            'processfileprogress',
+            'processfileabort',
+            'processfilerevert',
+            'processfile',
+            'processfiles',
+            'removefile',
+            'preparefile',
+            'updatefiles',
+            'activatefile',
+            'reorderfiles'
+        ]
     }"
     x-init="
         element = $el.children.item(0);
@@ -26,7 +46,6 @@
         ...{
             server: {
                 process: (fieldName, file, metadata, load, error, progress, abort, tranfer, opts) => { 
-
                     if(options.options && options.options.allowMultiple)
                         value = value ? value : [];
 
@@ -40,13 +59,20 @@
                 },
                 revert: (fileId, load, error) => {
                     $wire.removeUpload('{{ $wireModel }}', fileId, load);
-
                 } 
             }
         },
         ...options.options
     });
     $watch('options', (newConfig) => instance.setOptions(newConfig.options));
+    @if($wireOptions)
+        $wire.on('filepond-{{ $wireModel }}', (functionName, args) => instance[functionName](...Object.values(args)));
+    @endif
+    events.forEach(eventName => {
+        instance.on(eventName, function() {
+            $wire.emit(`{{ $wireModel }}-${eventName}`, ...Object.values(arguments).filter(argument => ['number', 'string', 'boolean'].includes(typeof argument) || Array.isArray(argument)));
+        });
+    })
     "
     >
     <input {{ $attributes->whereDoesntStartWith('wire')->merge(['type' => 'file']) }} />

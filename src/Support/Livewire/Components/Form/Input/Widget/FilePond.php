@@ -73,7 +73,21 @@ class FilePond extends Widget
      * @var array
      */
     protected array $jsAvailableMethods = [
-        
+        'setOptions',
+        'addFile',
+        'addFiles',
+        'removeFile',
+        'removeFiles',
+        'processFile',
+        'processFiles',
+        'prepareFile',
+        'prepareFiles',
+        'getFile',
+        'getFiles',
+        'browse',
+        'sort',
+        'moveFile',
+        'destroy'   
     ];
 
     /**
@@ -82,6 +96,23 @@ class FilePond extends Widget
      * @var array
      */
     protected array $jsAvailableEvents = [
-        
+        'init',
+        'warning',
+        'warning',
+        'initfile',
+        'addfilestart',
+        'addfileprogress',
+        'addfile',
+        'processfilestart',
+        'processfileprogress',
+        'processfileabort',
+        'processfilerevert',
+        'processfile',
+        'processfiles',
+        'removefile',
+        'preparefile',
+        'updatefiles',
+        'activatefile',
+        'reorderfiles'
     ];
 }
