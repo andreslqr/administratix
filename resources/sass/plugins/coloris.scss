@@ -1,0 +1,9 @@
+@import "@melloware/coloris/dist/coloris.css";
+
+.clr-field {
+    width: 100%;
+    button {
+        border-top-right-radius: var(--rounded-btn, .5rem);
+        border-bottom-right-radius: var(--rounded-btn, .5rem);
+    }
+}

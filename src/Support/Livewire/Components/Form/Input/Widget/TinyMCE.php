@@ -18,16 +18,6 @@ class TinyMCE extends Widget
     protected $widgetName = 'tinymce';
 
     /**
-     * The constructor of the class
-     * 
-     * @param array options
-     */
-    public function __construct($wireModelName = null, array $options = [])
-    {
-        parent::__construct($wireModelName, $options);
-    }
-
-    /**
      * The array options for js with values
      * 
      * @var array
