@@ -7,7 +7,9 @@
     "devDependencies": {
         "@alpinejs/mask": "^3.10.5",
         "@fortawesome/fontawesome-free": "^6.1.1",
+        "@melloware/coloris": "^0.19.1",
         "alpinejs": "^3.10.2",
+        "apexcharts": "^3.40.0",
         "autoprefixer": "^10.4.7",
         "daisyui": "^2.38.0",
         "filepond": "^4.30.4",
