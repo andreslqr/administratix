@@ -3,7 +3,7 @@
 ])
 
 @error($for)
-    <span class="text-xs text-error">
-        {{ $name }}
+    <span {{ $attributes->merge(['class' => 'text-xs text-error']) }}>
+        {{ $message }}
     </span>
 @enderror
