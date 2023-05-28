@@ -14,9 +14,6 @@ return [
                 'toggle-menu' => 'toggle-sidebar-menu',
                 'show-menu' => 'show-sidebar-menu',
                 'hide-menu' => 'hide-sidebar-menu'
-            ],
-            'file' => [
-                'remove-files' => 'remove-form-input-widget-file'
             ]
         ]
     ]
