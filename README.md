@@ -25,18 +25,3 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](./LICENSE.md)
-
-
-
-## js libraries
-
-- https://github.com/orchidjs/tom-select
-- https://github.com/duetds/date-picker
-- https://github.com/mdbassit/Coloris
-- https://github.com/inorganik/CountUp.js?ref=vanillalist
-- https://sbstjn.github.io/timesheet.js/?ref=vanillalist
-- https://github.com/LunarLogic/starability?ref=vanillalist
-- http://sortablejs.github.io/Sortable/?ref=vanillalist
-- https://github.com/quilljs/quill/?ref=vanillalist
-- https://github.com/Pikaday/Pikaday?ref=vanillalist
-- https://github.com/bevacqua/horsey?ref=vanillalist
