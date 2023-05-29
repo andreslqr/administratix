@@ -7,15 +7,15 @@ return [
     'config'        => [
         'icon-component' => 'admin::icon.awesome',
         'positions' => [
-            'top-start' => '',
-            'top-center' => '',
-            'top-end' => '',
-            'middle-end' => '',
-            'bottom-end' => '',
-            'bottom-center' => '',
-            'bottom-start' => '',
-            'middle-start' => '',
-            'middle-center' => ''
+            'top-start'     => 'toast-top toast-start',
+            'top-center'    => 'toast-top toast-center',
+            'top-end'       => 'toast-top toast-end',
+            'middle-end'    => 'toast-middle toast-end',
+            'bottom-end'    => 'toast-bottom toast-end',
+            'bottom-center' => 'toast-bottom toast-center',
+            'bottom-start'  => 'toast-bottom toast-start',
+            'middle-start'  => 'toast-middle toast-start',
+            'middle-center' => 'toast-middle toast-center'
         ],
         'types' => [
             'neutral' => [
