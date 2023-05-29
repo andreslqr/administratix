@@ -18,12 +18,13 @@
     </head>
     <body tabindex="-1">
         
-        <div class="bg-base-100 drawer drawer-mobile" x-data="{showSidebar: false}"> 
+        <div class="bg-base-100 drawer drawer-mobile" x-data="{ showSidebar: false }"> 
             <input id="sidebar-menu" type="checkbox" class="drawer-toggle" x-model="showSidebar" />  
-            <div class="drawer-content flex flex-col">  
+            <div class="drawer-content flex flex-col relative">  
                 @livewire(config('administratix.livewire.components.admin.navbar.component'))
-                <main class="{{ config('administratix.general.app-padding') }}"> 
+                <main class="{{ config('administratix.general.app-padding') }} relative"> 
                     {{ $slot }}
+                    @livewire(config('administratix.livewire.components.admin.notifier.component'))
                 </main>
                 @livewire(config('administratix.livewire.components.admin.footer.component'))
             </div>

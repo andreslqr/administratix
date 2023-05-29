@@ -1,5 +1,5 @@
-<header class="sticky top-0 shadow-md z-1">
-    <div class="navbar bg-base-100">
+<header class="sticky top-0 shadow-md bg-base-100 z-10 backdrop-blur bg-opacity-70">
+    <div class="navbar">
         <div class="navbar-start">
             <x-dynamic-component :component="config('administratix.views.components.button.view')" ghost circle class="lg:hidden shadow" x-on:click="showSidebar = !showSidebar">
                 <x-dynamic-component :component="config('administratix.views.components.icon.awesome.view')" name="bars" />
