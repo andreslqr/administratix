@@ -1,15 +1,16 @@
 <?php
 
 return [
-    'component'     => 'admin::notifier',
-    'class'         => \Administratix\Administratix\Http\Livewire\Notifier::class,
-    'view'          => 'admin::livewire.notifier',
+    'component'     => 'admin::toaster',
+    'class'         => \Administratix\Administratix\Http\Livewire\Toaster::class,
+    'view'          => 'admin::livewire.toaster',
     'config'        => [
         'icon-component' => 'admin::icon.awesome',
+        'default-duration' => 500000,
         'positions' => [
+            'top-end'       => 'toast-top toast-end',
             'top-start'     => 'toast-top toast-start',
             'top-center'    => 'toast-top toast-center',
-            'top-end'       => 'toast-top toast-end',
             'middle-end'    => 'toast-middle toast-end',
             'bottom-end'    => 'toast-bottom toast-end',
             'bottom-center' => 'toast-bottom toast-center',

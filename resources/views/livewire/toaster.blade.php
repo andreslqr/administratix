@@ -14,8 +14,8 @@
                         x-bind:id="id" 
                         x-init="
                             setTimeout(() => $el.classList.remove('hidden'), enterTime);
-                            {{-- setTimeout(() => $el.classList.add('hidden'), enterTime + toast.duration);
-                            setTimeout(() => delete toasts['{{ $position }}'][id], enterTime + toast.duration + leaveTime); --}}
+                            setTimeout(() => $el.classList.add('hidden'), enterTime + toast.duration);
+                            setTimeout(() => delete toasts['{{ $position }}'][id], enterTime + toast.duration + leaveTime);
                         "
                     >
                         <div>

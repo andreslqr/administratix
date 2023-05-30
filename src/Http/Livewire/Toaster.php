@@ -6,14 +6,13 @@ use Administratix\Administratix\Exceptions\PropertyIsNotDefined;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\HtmlString;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
-class Notifier extends Component
+class Toaster extends Component
 {
     /**
-     * The notifier instances
+     * The toaster instances
      * 
      * @var array
      */
@@ -34,20 +33,27 @@ class Notifier extends Component
     public array $types;
 
     /**
+     * Get the global listeners
+     * 
+     * @return array
+     */
+    protected function getListeners()
+    {
+        return [
+            config('administratix.general.livewire.events.toaster.toast') => 'addToast'
+        ];
+    }
+
+    /**
      * The mount method
      * 
      * @return void
      */
     public function mount()
     {
-        $this->positions = config('administratix.livewire.components.admin.notifier.config.positions');
-        $this->types = config('administratix.livewire.components.admin.notifier.config.types');
+        $this->positions = config('administratix.livewire.components.admin.toaster.config.positions');
+        $this->types = config('administratix.livewire.components.admin.toaster.config.types');
         $this->setToastsInstances();
-        foreach($this->positions as $position => $vx)
-        {
-            // foreach($this->types as $type => $v)
-                $this->addToast("<h1> test</h1>", 'error', $position, 10000);
-        }
     }
 
     /**
@@ -69,15 +75,25 @@ class Notifier extends Component
      */
     public function render()
     {
-        return View::make(config('administratix.livewire.components.admin.notifier.view'));
+        return View::make(config('administratix.livewire.components.admin.toaster.view'));
     }
 
-    protected function addToast($content, $type = 'info', $position = 'top-end', int $duration = 1000, $iconName = null, $iconComponent = null)
+    /**
+     * The toast toaster
+     * 
+     * @param  string $content
+     * @param  string $type
+     * @param  string $position
+     * @param  int $duration
+     * @param  string $iconName
+     * @param  string $iconComponent
+     */
+    public function addToast($content, $type, $position, int $duration, $iconName, $iconComponent)
     {
         throw_unless(Arr::has($this->positions, $position), PropertyIsNotDefined::class, "positions.{$position}");
         throw_unless(Arr::has($this->types, $type), PropertyIsNotDefined::class, "types.{$position}");
 
-        $this->toasts[$position][(string) Str::ulid()] = [
+        $this->toasts[$position][Str::ulid()->toBase32()] = [
             'content' => $content,
             'class' => Arr::get($this->positions, $position),
             'type' => Arr::get($this->types, "{$type}.class"),
@@ -86,7 +102,7 @@ class Notifier extends Component
                 <x-dynamic-component :component="$component" :name="$name">
                 </x-dynamic-compnent>
             ', [
-                'component' => $iconComponent ?: config('administratix.livewire.components.admin.notifier.config.icon-component'),
+                'component' => $iconComponent ?: config('administratix.livewire.components.admin.toaster.config.icon-component'),
                 'name' => $iconName ?: Arr::get($this->types, "{$type}.icon")
             ])
             

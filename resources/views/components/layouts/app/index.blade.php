@@ -22,9 +22,11 @@
             <input id="sidebar-menu" type="checkbox" class="drawer-toggle" x-model="showSidebar" />  
             <div class="drawer-content flex flex-col h-screen !overflow-y-hidden">  
                 @livewire(config('administratix.livewire.components.admin.navbar.component'))
-                <main class="{{ config('administratix.general.app-padding') }} h-full overflow-y-auto relative"> 
-                    {{ $slot }}
-                    @livewire(config('administratix.livewire.components.admin.notifier.component'))
+                <main class="{{ config('administratix.general.app-padding') }} h-full overflow-y-hidden relative"> 
+                    <div id="content" class="h-full overflow-y-auto">
+                        {{ $slot }}
+                    </div>
+                    @livewire(config('administratix.livewire.components.admin.toaster.component'))
                 </main>
                 @livewire(config('administratix.livewire.components.admin.footer.component'))
             </div>
