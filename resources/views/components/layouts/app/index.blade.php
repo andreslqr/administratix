@@ -20,9 +20,9 @@
         
         <div class="bg-base-100 drawer drawer-mobile" x-data="{ showSidebar: false }"> 
             <input id="sidebar-menu" type="checkbox" class="drawer-toggle" x-model="showSidebar" />  
-            <div class="drawer-content flex flex-col relative">  
+            <div class="drawer-content flex flex-col h-screen !overflow-y-hidden">  
                 @livewire(config('administratix.livewire.components.admin.navbar.component'))
-                <main class="{{ config('administratix.general.app-padding') }} relative"> 
+                <main class="{{ config('administratix.general.app-padding') }} h-full overflow-y-auto relative"> 
                     {{ $slot }}
                     @livewire(config('administratix.livewire.components.admin.notifier.component'))
                 </main>

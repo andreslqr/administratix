@@ -43,7 +43,11 @@ class Notifier extends Component
         $this->positions = config('administratix.livewire.components.admin.notifier.config.positions');
         $this->types = config('administratix.livewire.components.admin.notifier.config.types');
         $this->setToastsInstances();
-        $this->addToast("<h1> test</h1>", 'success');
+        foreach($this->positions as $position => $vx)
+        {
+            // foreach($this->types as $type => $v)
+                $this->addToast("<h1> test</h1>", 'error', $position, 10000);
+        }
     }
 
     /**

@@ -32,7 +32,7 @@ return [
             ],
             'warning' => [
                 'class' => 'alert-warning',
-                'icon' => 'circle¡-exclamation',
+                'icon' => 'circle-exclamation',
             ],
             'error' => [
                 'class' => 'alert-error',

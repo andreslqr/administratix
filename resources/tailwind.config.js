@@ -36,9 +36,10 @@ module.exports = {
         './resources/**/*.blade.php',
         './resources/**/*.js',
         './resources/**/*.vue',
-        './vendor/administratix/administratix/resources/**/*.blade.php',
-        './vendor/administratix/administratix/resources/**/*.js',
-        './vendor/administratix/admiistratix/config/**/*.php'
+        './vendor/administratix/administratix/src/**/*.php',
+        './vendor/administratix/administratix/resources/views/**/*.blade.php',
+        './vendor/administratix/administratix/resources/js/**/*.js',
+        './vendor/administratix/administratix/config/administratix/**/*.php'
     ],
     theme: {
         extend: {
