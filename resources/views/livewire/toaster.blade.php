@@ -2,11 +2,11 @@
     toasts: $wire.entangle('toasts'),
     leaveTime: 5
 }">
-
     @foreach($this->positions as $position => $class)
         <div class="absolute toast {{ $class }}" x-show="typeof toasts['{{ $position }}'] === 'object'">
             <template x-for="(toast, id) in toasts['{{ $position }}']" :key="id">
-                <div class="alert" 
+                <div class="alert cursor-pointer" 
+                    x-on:click="delete toasts['{{ $position }}'][id]"
                     x-bind:class="toast.type"
                     x-init="
                         setTimeout(() => $el.classList.add('hidden'), toast.duration);
