@@ -1,5 +1,6 @@
 @props([
-    'routerType' => null
+    'routerType' => null,
+    'guard' => config('auth.defaults.guard')
 ])
 
 
@@ -21,7 +22,7 @@
         <div class="bg-base-100 drawer drawer-mobile" x-data="{ showSidebar: false }"> 
             <input id="sidebar-menu" type="checkbox" class="drawer-toggle" x-model="showSidebar" />  
             <div class="drawer-content flex flex-col h-screen !overflow-y-hidden">  
-                @livewire(config('administratix.livewire.components.admin.navbar.component'))
+                @livewire(config('administratix.livewire.components.admin.navbar.component'), ['guard' => $guard])
                 <main class="{{ config('administratix.general.app-padding') }} h-full overflow-y-hidden relative"> 
                     <div id="content" class="h-full overflow-y-auto">
                         {{ $slot }}
