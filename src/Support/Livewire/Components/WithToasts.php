@@ -60,7 +60,7 @@ trait WithToasts
     }
 
     /**
-     * Toast with normal
+     * Toast with info
      * 
      * @param  string $content
      * @param  string $duration
@@ -81,7 +81,7 @@ trait WithToasts
     }
 
     /**
-     * Toast with normal
+     * Toast with success
      * 
      * @param  string $content
      * @param  string $duration
@@ -102,7 +102,7 @@ trait WithToasts
     }
 
     /**
-     * Toast with normal
+     * Toast with warning
      * 
      * @param  string $content
      * @param  string $duration
@@ -123,7 +123,7 @@ trait WithToasts
     }
 
      /**
-     * Toast with normal
+     * Toast with error
      * 
      * @param  string $content
      * @param  string $duration
