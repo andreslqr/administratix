@@ -8,7 +8,7 @@
 @endphp
 
 
-<div {{ $attributes->merge(['class' => 'dropdown']) }} @if($name) x-data="{ open: $wire.entangle('dropdowns.{{ $name }}') }" x-bind:class="{'dropdown-open': open}" @endif>
+<div {{ $attributes->merge(['class' => 'dropdown']) }} @if($name) x-data="{ open: $wire.entangle('dropdowns.{{ $name }}') }" x-bind:class="{ 'dropdown-open': open }" @endif>
     <label tabindex="0" @if($name) x-on:click="open = true" @endif>
         {{ $trigger }}
     </label>

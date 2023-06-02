@@ -6,7 +6,7 @@ return [
     'view'          => 'admin::livewire.toaster',
     'config'        => [
         'icon-component' => 'admin::icon.awesome',
-        'default-duration' => 50000,
+        'default-duration' => 5000,
         'positions' => [
             'top-end'       => 'toast-top toast-end',
             'top-start'     => 'toast-top toast-start',

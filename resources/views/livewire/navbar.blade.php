@@ -12,12 +12,21 @@
             </a>
         </div>
         <div class="navbar-end gap-x-2">
-            <x-dynamic-component :component="config('administratix.views.components.button.view')" class="shadow" ghost circle>
-                <x-dynamic-component :component="config('administratix.views.components.icon.awesome.view')" name="bell" />
-            </x-dynamic-component>
-            <x-dynamic-component :component="config('administratix.views.components.button.view')" class="hidden lg:block shadow" ghost circle>
-                <x-dynamic-component :component="config('administratix.views.components.icon.awesome.view')" name="user" />
-            </x-dynamic-component>
+            {{-- @if($this->isAuthenticated) --}}
+                <x-dynamic-component :component="config('administratix.views.components.dropdown.view')" class="dropdown-end" wire:dropdown="notifications">
+                    <x-slot:trigger>
+                        <x-dynamic-component :component="config('administratix.views.components.button.view')" class="shadow" ghost circle>
+                            <x-dynamic-component :component="config('administratix.views.components.icon.awesome.view')" name="bell" />
+                        </x-dynamic-component>
+                    </x-slot:trigger>
+                    <x-slot:content class="shadow w-52">
+                        @livewire(config('administratix.livewire.components.admin.notifications.component'), ['guard' => $guard]) 
+                    </x-slot:content>
+                </x-dynamic-component>
+                <x-dynamic-component :component="config('administratix.views.components.button.view')" class="hidden lg:block shadow" ghost circle>
+                    <x-dynamic-component :component="config('administratix.views.components.icon.awesome.view')" name="user" />
+                </x-dynamic-component>
+            {{-- @endif --}}
         </div>
     </div>
 </header>
