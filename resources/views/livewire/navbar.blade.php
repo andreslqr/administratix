@@ -19,7 +19,7 @@
                             <x-dynamic-component :component="config('administratix.views.components.icon.awesome.view')" name="bell" />
                         </x-dynamic-component>
                     </x-slot:trigger>
-                    <x-slot:content class="shadow w-52">
+                    <x-slot:content class="w-96">
                         @livewire(config('administratix.livewire.components.admin.notifications.component'), ['guard' => $guard]) 
                     </x-slot:content>
                 </x-dynamic-component>

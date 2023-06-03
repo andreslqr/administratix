@@ -5,33 +5,37 @@ return [
     'default-notification' => \Administratix\Administratix\Notifications\AdminNotification::class,
     'mail-notification' => \Administratix\Administratix\Mail\AdminMail::class,
     'icon-component' => 'admin::icon.awesome',
+    'empty-icon' => 'bell-slash',
+    'swap-component' => 'admin::form.input.swap',
+    'none-read-icon' => 'eye-slash',
+    'all-icon' => 'eye',
     'via' => [
         'database'
     ],
     'types' => [
         'info' => [
-            'icon-class' => 'text-white bg-info',
-            'background-class' => '',
+            'icon-class' => 'btn-info',
+            'background-class' => 'hover:bg-info/20',
             'icon' => 'info',
         ],
         'neutral' => [
             'icon-class' => '',
-            'background-class' => '',
-            'icon' => '',
+            'background-class' => 'hover:bg-base-300/20',
+            'icon' => 'bell',
         ],
         'success' => [
-            'icon-class' => 'text-white bg-success',
-            'background-class' => '',
+            'icon-class' => 'btn-success',
+            'background-class' => 'hover:bg-success/20',
             'icon' => 'check',
         ],
         'warning' => [
-            'icon-class' => 'text-white bg-warning',
-            'background-class' => '',
+            'icon-class' => 'btn-warning',
+            'background-class' => 'hover:bg-warning/20',
             'icon' => 'exclamation',
         ],
         'error' => [
-            'icon-class' => 'text-white bg-error',
-            'background-class' => '',
+            'icon-class' => 'btn-error',
+            'background-class' => 'hover:bg-error/20',
             'icon' => 'xmark',
         ]
     ]
