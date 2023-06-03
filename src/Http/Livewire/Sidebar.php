@@ -33,9 +33,9 @@ class Sidebar extends Component
     protected function getListeners()
     {
         return [
-            config('administratix.general.livewire.events.sidebar.toggle-menu') => 'toggleSidebar',
-            config('administratix.general.livewire.events.sidebar.show-menu') => 'toggleSidebar',
-            config('administratix.general.livewire.events.sidebar.hide-menu') => 'toggleSidebar',
+            config('administratix.livewire.components.admin.sidebar.events.toggle-menu') => 'toggleSidebar',
+            config('administratix.livewire.components.admin.sidebar.events.show-menu') => 'toggleSidebar',
+            config('administratix.livewire.components.admin.sidebar.events.hide-menu') => 'toggleSidebar',
         ];
     } 
 

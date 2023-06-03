@@ -4,6 +4,9 @@ return [
     'component'     => 'admin::notifications',
     'class'         => \Administratix\Administratix\Http\Livewire\Notifications::class,
     'view'          => 'admin::livewire.notifications',
+    'events'        => [
+        
+    ],
     'config'        => [
         'default-notifications-count' => 5,
         'select' => [

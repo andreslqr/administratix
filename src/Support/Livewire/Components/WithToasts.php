@@ -28,7 +28,7 @@ trait WithToasts
 
         return $this->emitTo(
             config('administratix.livewire.components.admin.toaster.component'),
-            config('administratix.general.livewire.events.toaster.toast'),
+            config('administratix.livewire.components.admin.toaster.events.toast'),
             $content,
             $type,
             $position,

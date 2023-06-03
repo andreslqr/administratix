@@ -1,5 +1,5 @@
 <div x-data="{
-    toasts: $wire.entangle('toasts'),
+    toasts: $wire.entangle('toasts'){{ config('administratix.livewire.components.admin.toaster.config.defer') ? '.defer' : '' }},
     leaveTime: 5
 }">
     @foreach($this->positions as $position => $class)

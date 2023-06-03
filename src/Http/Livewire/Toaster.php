@@ -40,7 +40,7 @@ class Toaster extends Component
     protected function getListeners()
     {
         return [
-            config('administratix.general.livewire.events.toaster.toast') => 'addToast'
+            config('administratix.livewire.components.admin.toaster.events.toast') => 'addToast'
         ];
     }
 

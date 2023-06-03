@@ -4,7 +4,11 @@ return [
     'component'     => 'admin::toaster',
     'class'         => \Administratix\Administratix\Http\Livewire\Toaster::class,
     'view'          => 'admin::livewire.toaster',
+    'events'        => [
+        'toast' => 'toast'
+    ],
     'config'        => [
+        'defer' => true,
         'icon-component' => 'admin::icon.awesome',
         'default-duration' => 5000,
         'positions' => [

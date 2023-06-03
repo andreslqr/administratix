@@ -11,7 +11,7 @@ trait WithSidebarEvents
      */
     public function toggleSidebar()
     {
-        $this->emit(config('administratix.general.livewire.events.sidebar.toggle-menu'), null);
+        $this->emit(config('administratix.livewire.components.admin.sidebar.events.toggle-menu'), null);
     }
 
     /**
@@ -21,7 +21,7 @@ trait WithSidebarEvents
      */
     public function showSidebar()
     {
-        $this->emit(config('administratix.general.livewire.events.sidebar.show-menu'), true);
+        $this->emit(config('administratix.livewire.components.admin.sidebar.events.show-menu'), true);
     }
 
     /**
@@ -31,6 +31,6 @@ trait WithSidebarEvents
      */
     public function hideSidebar()
     {
-        $this->emit(config('administratix.general.livewire.events.sidebar.hide-menu'), false);
+        $this->emit(config('administratix.livewire.components.admin.sidebar.events.hide-menu'), false);
     }
 }

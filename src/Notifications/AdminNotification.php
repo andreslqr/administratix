@@ -2,21 +2,54 @@
 
 namespace Administratix\Administratix\Notifications;
 
+use Administratix\Administratix\Mail\AdminMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Mail\Mailable;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Arr;
 
-class AdminNotification
+class AdminNotification extends Notification
 {
     use Queueable;
 
     /**
+     * The title of the notification
+     * 
+     * @var string
+     */
+    public $title;
+
+    /**
+     * The content of the notification
+     * 
+     * @var string
+     */
+    public $content;
+
+    /**
+     * The action of the button
+     * 
+     * @var string
+     */
+    public $action;
+
+    /**
+     * The type of the notification
+     * 
+     * @var string
+     */
+    public $type;
+
+    /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($title, $content, $action = null, $type = null)
     {
-        //
+        $this->title = $title;
+        $this->content = $content;
+        $this->action = $action;
+        $this->type = $type ?: Arr::first(array_keys(config('administratix.notifications.types')));
     }
 
     /**
@@ -26,18 +59,15 @@ class AdminNotification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return config('administratix.notifications.via');
     }
 
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(object $notifiable): MailMessage
+    public function toMail(object $notifiable): Mailable
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        return new AdminMail($this->title, $this->content, $this->action, $this->type);
     }
 
     /**
@@ -48,7 +78,10 @@ class AdminNotification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'title' => $this->title,
+            'content' => $this->content,
+            'action' => $this->action,
+            'type' => $this->type
         ];
     }
 }
