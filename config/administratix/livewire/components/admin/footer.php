@@ -8,6 +8,6 @@ return [
         
     ],
     'config'        => [
-        'message' => 'Made with love from <a class="link link-primary link-hover bg-base-200" target="_blank" href="https://github.com/andreslqr/administratix">Administratix</a> team'
+        'message' => 'Made with love from <a class="link link-primary link-hover" target="_blank" href="https://github.com/andreslqr/administratix">Administratix</a> team'
     ]
 ];

@@ -65,11 +65,19 @@ class Notifications extends Component
     {
         return $this->user()
                     ->notifications()
-                    ->select('id', 'notifiable_type', 'notifiable_id', 'data')
                     ->when(!$this->allNotifications, fn(Builder $query) => $query->whereNull('read_at'))
                     ->select(config('administratix.livewire.components.admin.notifications.config.select'))
-                    ->limit($this->count)
-                    ->get();
+                    ->limit($this->count);
+    }
+
+    /**
+     * Up the notifications
+     * 
+     * @return void
+     */
+    public function loadMoreNotifcations()
+    {
+        $this->count += 3;
     }
 
     /**
@@ -79,7 +87,7 @@ class Notifications extends Component
      */
     public function getIconComponentProperty()
     {
-        return config('administratix.notifications.icon-component');
+        return config('administratix.livewire.components.admin.notifications.config.icon-component');
     }
 
     /**
@@ -89,7 +97,7 @@ class Notifications extends Component
      */
     public function getSwapComponentProperty()
     {
-        return config('administratix.notifications.swap-component');
+        return config('administratix.livewire.components.admin.notifications.config.swap-component');
     }
 
 
@@ -100,7 +108,7 @@ class Notifications extends Component
      */
     public function getNoneReadIconNameProperty()
     {
-        return config('administratix.notifications.none-read-icon');
+        return config('administratix.livewire.components.admin.notifications.config.none-read-icon');
     }
 
     /**
@@ -110,7 +118,7 @@ class Notifications extends Component
      */
     public function getAllIconNameProperty()
     {
-        return config('administratix.notifications.all-icon');
+        return config('administratix.livewire.components.admin.notifications.config.all-icon');
     }
 
     /**
@@ -120,7 +128,7 @@ class Notifications extends Component
      */
     public function getEmptyIconNameProperty()
     {
-        return config('administratix.notifications.empty-icon');
+        return config('administratix.livewire.components.admin.notifications.config.empty-icon');
     }
 
     /**

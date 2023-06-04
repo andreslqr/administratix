@@ -15,6 +15,11 @@ return [
             'notifiable_id',
             'data',
             'read_at'
-        ]
+        ],
+        'icon-component' => 'admin::icon.awesome',
+        'empty-icon' => 'bell-slash',
+        'swap-component' => 'admin::form.input.swap',
+        'none-read-icon' => 'eye-slash',
+        'all-icon' => 'eye',
     ]
 ];

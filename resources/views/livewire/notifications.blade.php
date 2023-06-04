@@ -3,7 +3,7 @@
         wire:key="navbar-notifications-title"
     >
         <div>
-            <h3 class="">
+            <h3>
                 {{ __('Notifications') }}
             </h3>
         </div>
@@ -23,8 +23,8 @@
             </x-slot:on>
         </x-dynamic-component>
     </div>
-    <div class="max-h-96 overflow-y-auto overscroll-contain divide-y divide-base-300">
-        @forelse($this->notifications as $notification)
+    <div class="max-h-64 overflow-y-auto overscroll-contain divide-y divide-base-300">
+        @forelse($this->notifications->get() as $notification)
             @php 
                 $type = Arr::get($this->notificationTypes, Arr::get($notification->data, 'type'));
                 info($type);
@@ -62,5 +62,18 @@
                 </div>
             </div>
         @endforelse
+        @if($this->notifications->count())
+            <div class="py-4 px-3 flex items-center justify-center gap-x-1" 
+                    wire:key="navbar-notifications-empty"
+            >
+                <div>
+                    <div class="text-xs cursor-pointer link link-primary link-hover" wire:target="loadMoreNotifcations" wire:loading.class="hidden" wire:click="loadMoreNotifcations">
+                        {{ __('Load more...') }}
+                    </div>
+                    <progress class="progress progress-primary w-56 hidden"  wire:target="loadMoreNotifcations" wire:loading.class.remove="hidden"></progress>
+
+                </div>
+            </div>
+        @endif
     </div>
 </div>

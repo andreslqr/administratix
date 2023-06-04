@@ -23,8 +23,15 @@
                         @livewire(config('administratix.livewire.components.admin.notifications.component'), ['guard' => $guard]) 
                     </x-slot:content>
                 </x-dynamic-component>
-                <x-dynamic-component :component="config('administratix.views.components.button.view')" class="hidden lg:block shadow" ghost circle>
-                    <x-dynamic-component :component="config('administratix.views.components.icon.awesome.view')" name="user" />
+                <x-dynamic-component :component="config('administratix.views.components.dropdown.view')" class="dropdown-end" wire:dropdown="profilePreview">
+                    <x-slot:trigger>
+                        <x-dynamic-component :component="config('administratix.views.components.button.view')" class="hidden lg:block shadow" ghost circle>
+                            <x-dynamic-component :component="config('administratix.views.components.icon.awesome.view')" name="user" />
+                        </x-dynamic-component>
+                    </x-slot:trigger>
+                    <x-slot:content class="w-96">
+                        @livewire(config('administratix.livewire.components.admin.profile-overview.component'), ['guard' => $guard]) 
+                    </x-slot:content>
                 </x-dynamic-component>
             {{-- @endif --}}
         </div>

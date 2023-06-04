@@ -1,13 +1,14 @@
 <?php
 
 return [
-    'component'     => 'admin::profile-notifications',
+    'component'     => 'admin::profile-overview',
     'class'         => \Administratix\Administratix\Http\Livewire\ProfileOverview::class,
-    'view'          => 'admin::livewire.footer',
+    'view'          => 'admin::livewire.profile-overview',
     'events'        => [
         
     ],
     'config'        => [
-        'default-notifications-count' => 5
+        'icon-component' => 'admin::icon.awesome',
+        'user-icon' => 'user'
     ]
 ];
